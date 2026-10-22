@@ -3,448 +3,217 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مجموعة أفق | Ofoq Group & Cafe</title>
+    <title>مجموعة أفق | أعمالي وخدماتي</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --royal-navy: #0f172a;
+            --navy-light: #1e293b;
+            --accent-gold: #c5a880;
+            --text-light: #f8fafc;
+            --text-muted: #94a3b8;
+            --border: #334155;
+        }
+
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        body {
-            background-color: #fcfbf9;
-            color: #2c2a29;
-            padding-bottom: 120px;
-        }
-        
-        /* Master Portal Nav Bar (Ofoq Hub) */
-        .ofoq-hub {
-            background: #0f172a;
-            border-bottom: 3px solid #c5a880;
-            padding: 15px 10px;
-            text-align: center;
-        }
-        .ofoq-hub h2 {
-            color: #c5a880;
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-        .hub-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-        .hub-btn {
-            background: #1e293b;
-            color: #f8fafc;
-            border: 1px solid #c5a880;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: bold;
-            cursor: pointer;
-            text-decoration: none;
-            transition: 0.3s;
-        }
-        .hub-btn:hover, .hub-btn.active {
-            background: #c5a880;
-            color: #0f172a;
+            font-family: 'Tajawal', sans-serif;
         }
 
-        header {
-            background: #2b1e1a;
-            color: #fdfbf7;
-            padding: 25px 20px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        body {
+            background-color: var(--royal-navy);
+            color: var(--text-light);
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        .status-badge {
-            display: inline-flex;
+
+        .container {
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .header-card {
+            background: var(--navy-light);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 16px 20px;
+            text-align: center;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .section-heading {
+            font-size: 16px;
+            color: var(--accent-gold);
+            margin: 25px 0 12px 5px;
+            display: flex;
             align-items: center;
             gap: 8px;
-            background: rgba(255,255,255,0.1);
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 13px;
-            margin-top: 10px;
+            border-right: 3px solid var(--accent-gold);
+            padding-right: 8px;
         }
-        .dot {
-            width: 8px;
-            height: 8px;
-            background-color: #22c55e;
-            border-radius: 50%;
-            box-shadow: 0 0 8px #22c55e;
+
+        .work-card {
+            background: var(--navy-light);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
         }
-        .category-tabs {
+
+        .work-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--accent-gold);
+            margin-bottom: 8px;
             display: flex;
-            justify-content: center;
+            align-items: center;
             gap: 8px;
-            background: #f0eae1;
-            padding: 10px;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
-        .tab-btn {
-            border: none;
-            background: transparent;
-            padding: 8px 14px;
-            border-radius: 20px;
+
+        .work-desc {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .action-btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            text-align: center;
             font-size: 14px;
-            font-weight: bold;
-            color: #524741;
+            font-weight: 700;
+            text-decoration: none;
+            transition: 0.2s;
             cursor: pointer;
-            transition: all 0.3s;
+            border: none;
         }
-        .tab-btn.active {
-            background: #2b1e1a;
+
+        .btn-preview {
+            background: #38bdf8;
+            color: #0f172a;
+        }
+        .btn-preview:hover { background: #0ea5e9; }
+
+        .btn-whatsapp {
+            background: #22c55e;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+        .btn-whatsapp:hover { background: #16a34a; }
+
+        .btn-linkedin {
+            background: #0284c7;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+        .btn-linkedin:hover { background: #0369a1; }
+
+        .btn-email {
+            background: #475569;
             color: #ffffff;
         }
-        .container {
-            max-width: 500px;
-            margin: 20px auto;
-            padding: 0 15px;
-        }
-        .tab-content {
-            display: none;
-        }
-        .tab-content.active {
-            display: block;
-        }
-        .card {
-            background: #ffffff;
-            border-radius: 16px;
-            overflow: hidden;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid #f0eae1;
-        }
-        .card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-        }
-        .card img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-        }
-        .card-content {
-            padding: 16px;
-        }
-        .card-title {
-            font-size: 17px;
-            font-weight: bold;
-            color: #2b1e1a;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .price {
-            color: #c88a58;
-            font-size: 16px;
-            font-weight: bold;
-        }
-        .card-desc {
-            color: #786f6a;
+        .btn-email:hover { background: #334155; }
+
+        .features-list {
             font-size: 13px;
-            margin: 8px 0 12px;
-            line-height: 1.5;
-        }
-        .add-btn {
-            width: 100%;
-            padding: 10px;
-            background: #2b1e1a;
-            color: #fff;
-            border: none;
-            border-radius: 10px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-        .add-btn:hover {
-            background: #c88a58;
-        }
-        .cart-bar {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 90%;
-            max-width: 450px;
-            background: #2b1e1a;
-            color: #fff;
-            padding: 15px 20px;
-            border-radius: 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-            z-index: 1000;
-        }
-        .cart-btn {
-            background: #c88a58;
-            color: #fff;
-            border: none;
-            padding: 10px 18px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        footer {
-            background: #1e1513;
-            color: #a89f91;
-            padding: 30px 20px;
-            text-align: center;
-            margin-top: 40px;
-            font-size: 13px;
+            color: var(--text-muted);
             line-height: 1.8;
+            padding-right: 5px;
         }
-        footer a {
-            color: #c88a58;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .social-links {
-            margin-top: 10px;
-            display: flex;
-            justify-content: center;
-            gap: 15px;
+
+        footer {
+            margin-top: 30px;
+            font-size: 12px;
+            color: var(--text-muted);
+            text-align: center;
         }
     </style>
 </head>
 <body>
 
-    <!-- مجموعة أفق الرئيسية (ربط المطعم والمتجر) -->
-    <div class="ofoq-hub">
-        <h2>✨ مجموعة أفق الفاخرة</h2>
-        <div class="hub-buttons">
-            <a href="restaurant.html" class="hub-btn">🍽️ مطعم أفق</a>
-            <a href="perfume.html" class="hub-btn">💎 متجر العطور</a>
-            <a href="index.html" class="hub-btn active">☕ أفق كافيه</a>
-        </div>
-    </div>
-
-    <header>
-        <h1>أفـــOfoqـــق كافيه ☕</h1>
-        <div class="status-badge">
-            <span class="dot"></span>
-            <span>مفتوح الآن - يستقبل الطلبات</span>
-        </div>
-    </header>
-
-    <div class="category-tabs">
-        <button class="tab-btn active" onclick="switchTab('drinks')">المشروبات ☕</button>
-        <button class="tab-btn" onclick="switchTab('sweets')">الحلويات 🍰</button>
-        <button class="tab-btn" onclick="switchTab('events')">الاحتفالات 🎉</button>
-    </div>
-
     <div class="container">
         
-        <div id="drinks" class="tab-content active">
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?q=80&w=600" alt="سبانيش لاتيه">
-                <div class="card-content">
-                    <div class="card-title">
-                        <span>سبانيش لاتيه بارد</span>
-                        <span class="price">22 ر.س</span>
-                    </div>
-                    <p class="card-desc">إسبريسو غني مع حليب مبخر ولمسة حلاوة موزونة.</p>
-                    <button class="add-btn" onclick="addToCart('سبانيش لاتيه بارد', 22)">إضافة للطلب +</button>
-                </div>
-            </div>
+        <!-- المؤهلات والشهادات -->
+        <div class="header-card">
+            <span>🎓</span> دبلوم إدارة الأعمال
+        </div>
 
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1517256064527-09c73fc73e38?q=80&w=600" alt="V60 بارد">
-                <div class="card-content">
-                    <div class="card-title">
-                        <span>V60 بارد</span>
-                        <span class="price">24 ر.س</span>
-                    </div>
-                    <p class="card-desc">قهوة مقطرة بإتقان مع نكهات فاكهية منعشة.</p>
-                    <button class="add-btn" onclick="addToCart('V60 بارد', 24)">إضافة للطلب +</button>
-                </div>
-            </div>
+        <div class="header-card">
+            <span>💼</span> شهادة التميز في الموارد البشرية (SHRM)
+        </div>
 
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?q=80&w=600" alt="موهيتو">
-                <div class="card-content">
-                    <div class="card-title">
-                        <span>موهيتو منعش</span>
-                        <span class="price">20 ر.س</span>
-                    </div>
-                    <p class="card-desc">مكس الصودا مع النعناع الطازج والليمون ونكهة اختيارية.</p>
-                    <button class="add-btn" onclick="addToCart('موهيتو منعش', 20)">إضافة للطلب +</button>
-                </div>
-            </div>
+        <!-- قسم نماذج من أعمالي -->
+        <div class="section-heading">
+            <span>💻</span> نماذج من أعمالي
+        </div>
 
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1613478223719-2ab802602423?q=80&w=600" alt="عصير برتقال">
-                <div class="card-content">
-                    <div class="card-title">
-                        <span>عصير برتقال طازج</span>
-                        <span class="price">18 ر.س</span>
-                    </div>
-                    <p class="card-desc">برتقال طبيعي معصور طازج بدون أي إضافات.</p>
-                    <button class="add-btn" onclick="addToCart('عصير برتقال طازج', 18)">إضافة للطلب +</button>
-                </div>
-            </div>
+        <!-- بطاقة الكافيه -->
+        <div class="work-card">
+            <div class="work-title">☕ نموذج تصميم منيو إلكتروني لكافيه</div>
+            <p class="work-desc">تصميم واجهة متكاملة لكافيه عصري تشمل تصنيفات المشروبات والحلويات وقسم الاحتفالات، مع سلة طلبات ذكية وإرسال مباشر للواتساب.</p>
+            <a href="cafe.html" class="action-btn btn-preview">معاينة منيو أفق كافيه ☕🔗</a>
+        </div>
 
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1534778101976-62847782c213?q=80&w=600" alt="كابتشينو">
-                <div class="card-content">
-                    <div class="card-title">
-                        <span>كابتشينو ساخن</span>
-                        <span class="price">18 ر.س</span>
-                    </div>
-                    <p class="card-desc">توازن مثالي بين الإسبريسو والحليب المخفوق مع رغوة كثيفة.</p>
-                    <button class="add-btn" onclick="addToCart('كابتشينو ساخن', 18)">إضافة للطلب +</button>
-                </div>
+        <!-- بطاقة المطعم (المضافة حديثاً) -->
+        <div class="work-card">
+            <div class="work-title">🍽️ نموذج نظام مطعم أفق الفاخر</div>
+            <p class="work-desc">قائمة طعام متكاملة، عرض السعرات، وتنبيهات الحساسية، مع نظام حجز طاولات تفاعلي وإتمام الطلب عبر الواتساب.</p>
+            <a href="restaurant.html" class="action-btn btn-preview">معاينة مطعم أفق 🍴🔗</a>
+        </div>
+
+        <!-- بطاقة متجر العطور (المضافة حديثاً) -->
+        <div class="work-card">
+            <div class="work-title">💎 نموذج متجر أفق للعطور والتجميل</div>
+            <p class="work-desc">متجر إلكتروني فاخر لعطور النيش والبارفوم والمكياج مع فلاتر تصنيف وعروض حصرية وخيارات الدفع المرنة.</p>
+            <a href="perfume.html" class="action-btn btn-preview">معاينة متجر العطور ✨🔗</a>
+        </div>
+
+        <!-- لماذا تختار خدماتي -->
+        <div class="section-heading">
+            <span>✨</span> لماذا تختار خدماتي؟
+        </div>
+
+        <div class="work-card">
+            <div class="features-list">
+                ✓ تصاميم حديثة وسريعة متوافقة مع الجوال.<br>
+                ✓ ربط مباشر مع الواتساب لتسهيل طلبات العملاء.<br>
+                ✓ إمكانية تخصيص المنيو والأقسام حسب هويتك التجارية.
             </div>
         </div>
 
-        <div id="sweets" class="tab-content">
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?q=80&w=600" alt="كوكيز">
-                <div class="card-content">
-                    <div class="card-title">
-                        <span>كوكيز شوكولاتة</span>
-                        <span class="price">12 ر.س</span>
-                    </div>
-                    <p class="card-desc">كوكيز طري ومخبوز طازج بقطع الشوكولاتة الغنية.</p>
-                    <button class="add-btn" onclick="addToCart('كوكيز شوكولاتة', 12)">إضافة للطلب +</button>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1533134242443-d4fd215305ad?q=80&w=600" alt="تشيز كيك التوت">
-                <div class="card-content">
-                    <div class="card-title">
-                        <span>تشيز كيك التوت</span>
-                        <span class="price">22 ر.س</span>
-                    </div>
-                    <p class="card-desc">طبقة غنية وقشدية مع صوص التوت الطبيعي اللذيذ.</p>
-                    <button class="add-btn" onclick="addToCart('تشيز كيك التوت', 22)">إضافة للطلب +</button>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=600" alt="تارت البيكان">
-                <div class="card-content">
-                    <div class="card-title">
-                        <span>تارت البيكان</span>
-                        <span class="price">20 ر.س</span>
-                    </div>
-                    <p class="card-desc">تارت مقرمش محشو بجوز البيكان والكراميل الدافئ.</p>
-                    <button class="add-btn" onclick="addToCart('تارت البيكان', 20)">إضافة للطلب +</button>
-                </div>
-            </div>
+        <!-- تواصل معي للأعمال -->
+        <div class="section-heading">
+            <span>✉️</span> تواصل معي للأعمال
         </div>
 
-        <div id="events" class="tab-content">
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=600" alt="كيكة المناسبات">
-                <div class="card-content">
-                    <div class="card-title">
-                        <span>كيكة احتفال خاصة 🎂</span>
-                        <span class="price">150 ر.س</span>
-                    </div>
-                    <p class="card-desc">كيكة فاخرة تناسب (عيد ميلاد، نجاح، ذكرى زواج، خطوبة) مع كتابة الاسم والعبارة حسب الطلب.</p>
-                    <button class="add-btn" onclick="addToCart('كيكة احتفال خاصة', 150, true)">إضافة وتخصيص الاسم +</button>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?q=80&w=600" alt="باقة الاحتفال">
-                <div class="card-content">
-                    <div class="card-title">
-                        <span>باقة الشموع والبالونات 🎈</span>
-                        <span class="price">35 ر.س</span>
-                    </div>
-                    <p class="card-desc">شموع شرار مميزة + سلسلة بالونات مجهزة للطاولة لإضافة بهجة وطابع احتفالي.</p>
-                    <button class="add-btn" onclick="addToCart('باقة الشموع والبالونات', 35)">إضافة للطلب +</button>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?q=80&w=600" alt="تنسيق طاولة">
-                <div class="card-content">
-                    <div class="card-title">
-                        <span>حزمة تنسيق الطاولة الكاملة ✨</span>
-                        <span class="price">120 ر.س</span>
-                    </div>
-                    <p class="card-desc">تنسيق مخصص للشخصين (ذكرى زواج / خطوبة / نجاح) يشمل كروت إهداء، ورد، وإضاءة خاصة.</p>
-                    <button class="add-btn" onclick="addToCart('تنسيق طاولة كامل', 120)">إضافة للطلب +</button>
-                </div>
-            </div>
+        <div class="work-card">
+            <a href="https://wa.me/966500000000" target="_blank" class="action-btn btn-whatsapp">💬 تواصل عبر الواتساب</a>
+            <a href="https://linkedin.com" target="_blank" class="action-btn btn-linkedin">💼 حسابی في LinkedIn</a>
+            <a href="mailto:info@ofoqgroup.com" class="action-btn btn-email">✉️ إرسال بريد إلكتروني</a>
         </div>
+
+        <footer>
+            nood2281993.github.io © 2026
+        </footer>
 
     </div>
-
-    <div class="cart-bar" id="cartBar">
-        <div>
-            <span>العناصر: <b id="cartCount">0</b></span>
-            <div style="font-size: 12px; color: #d1c7bd;">المجموع: <span id="cartTotal">0</span> ر.س</div>
-        </div>
-        <button class="cart-btn" onclick="sendOrder()">إتمام الطلب 💬</button>
-    </div>
-
-    <footer>
-        <p><b>أفـــOfoqـــق كافيه</b> - طعم يلامس أفق خيالك ✨</p>
-        <p>✉️ للطلبات والاستفسارات: <a href="mailto:info@ofoqcafe.com">info@ofoqcafe.com</a></p>
-        <div class="social-links">
-            <a href="#">انستغرام</a> | 
-            <a href="#">تيك توك</a> | 
-            <a href="#">سناب شات</a>
-        </div>
-        <p style="margin-top: 15px; font-size: 11px; opacity: 0.6;">© 2026 جميع الحقوق محفوظة لـ أفق كافيه.</p>
-    </footer>
-
-    <script>
-        let count = 0;
-        let total = 0;
-        let items = [];
-
-        function switchTab(tabId) {
-            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
-            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
-            
-            document.getElementById(tabId).classList.add('active');
-            event.target.classList.add('active');
-        }
-
-        function addToCart(itemName, price, isCustomEvent = false) {
-            if (isCustomEvent) {
-                let personName = prompt("اكتب اسم صاحب المناسبة (أو العبارة المطلوبة على الكيكة):");
-                let eventType = prompt("نوع المناسبة (مثال: عيد ميلاد، ذكرى زواج، نجاح، خطوبة):");
-                if (personName && eventType) {
-                    itemName += " (الاسم: " + personName + " - المناسبة: " + eventType + ")";
-                }
-            }
-
-            count++;
-            total += price;
-            items.push(itemName);
-            
-            document.getElementById('cartCount').innerText = count;
-            document.getElementById('cartTotal').innerText = total;
-
-            alert('تمت إضافة ' + itemName + ' للطلب بنجاح! 🎉');
-        }
-
-        function sendOrder() {
-            if (count === 0) {
-                alert('سلة الطلبات فارغة! اختر مشروباتك أو حلوياتك المفضل أولاً ☕');
-                return;
-            }
-            let message = "مرحباً، أرغب بطلب الآتي من أفق كافيه:\n- " + items.join("\n- ") + "\n\nالمجموع الكلي: " + total + " ر.س";
-            let whatsappUrl = "https://wa.me/?text=" + encodeURIComponent(message);
-            window.open(whatsappUrl, '_blank');
-        }
-    </script>
 
 </body>
 </html>

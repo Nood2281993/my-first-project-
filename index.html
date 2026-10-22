@@ -3,237 +3,312 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مجموعة أفق | أعمالي وخدماتي</title>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <title>العنـود الغامــدي | منصة أفق - Ofoq</title>
+    <!-- خط تجول Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --royal-navy: #0f172a;
-            --navy-light: #1e293b;
-            --accent-gold: #c5a880;
-            --text-light: #f8fafc;
-            --text-muted: #94a3b8;
-            --border: #334155;
+            --bg-beige: #f5f0eb;         /* خلفية بيج دافئة */
+            --card-beige: #ffffff;       /* كروت بيضاء ناصعة على البيج */
+            --text-main: #4a3f35;        /* بني بيج داكن مريح للعين للنصوص */
+            --text-muted: #8c7a6b;       /* بيج متوسط للتفاصيل الفرعية */
+            --border-beige: #e6ded6;     /* حدود بيج ناعمة */
+            --btn-beige: #d7c4b7;        /* بيج دافئ للأزرار */
+            --btn-hover: #c4b0a2;        /* درجة أغمق للأزرار عند التمرير */
         }
 
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
             font-family: 'Tajawal', sans-serif;
         }
 
         body {
-            background-color: var(--royal-navy);
-            color: var(--text-light);
+            background-color: var(--bg-beige);
+            color: var(--text-main);
+            line-height: 1.6;
             padding: 20px;
-            min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
+            min-height: 100vh;
         }
 
         .container {
+            max-width: 900px;
             width: 100%;
-            max-width: 500px;
         }
 
-        /* Logo Styling */
-        .logo-container {
+        /* Header Section */
+        header {
             text-align: center;
-            margin-bottom: 20px;
+            padding: 40px 20px;
+            background-color: var(--card-beige);
+            border-radius: 20px;
+            border: 1px solid var(--border-beige);
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(140, 122, 107, 0.08);
         }
-        .logo-container img {
-            width: 100px;
-            height: 100px;
-            object-fit: contain;
+
+        .logo-img {
+            width: 130px;
+            height: 130px;
             border-radius: 50%;
-            border: 2px solid var(--accent-gold);
-            padding: 5px;
-            background: var(--navy-light);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            object-fit: cover;
+            border: 3px solid var(--border-beige);
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
         }
 
-        .header-card {
-            background: var(--navy-light);
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            padding: 16px 20px;
-            text-align: center;
+        /* Name Box Under Image */
+        .name-box {
+            display: inline-block;
+            background-color: var(--bg-beige);
+            border: 1px solid var(--border-beige);
+            padding: 8px 24px;
+            border-radius: 12px;
+            margin-bottom: 12px;
+        }
+
+        .user-name {
+            color: var(--text-main);
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+        }
+
+        .platform-title {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            font-weight: 600;
             margin-bottom: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            font-size: 16px;
-            font-weight: 700;
-            color: var(--text-light);
+        }
+
+        .bio {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            max-width: 650px;
+            margin: 0 auto 20px auto;
+        }
+
+        /* Credentials / Badges */
+        .badges-container {
             display: flex;
-            align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 15px;
         }
 
-        .section-heading {
-            font-size: 16px;
-            color: var(--accent-gold);
-            margin: 25px 0 12px 5px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            border-right: 3px solid var(--accent-gold);
-            padding-right: 8px;
+        .badge {
+            background: #ede6df;
+            color: var(--text-main);
+            border: 1px solid var(--border-beige);
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
         }
 
-        .work-card {
-            background: var(--navy-light);
-            border: 1px solid var(--border);
+        /* Section Titles */
+        .section-title {
+            color: var(--text-main);
+            font-size: 1.5rem;
+            margin: 35px 0 20px 0;
+            text-align: right;
+            border-right: 4px solid var(--btn-beige);
+            padding-right: 12px;
+        }
+
+        /* Grid Layout */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background-color: var(--card-beige);
+            padding: 25px;
             border-radius: 16px;
-            padding: 20px;
-            margin-bottom: 15px;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+            border: 1px solid var(--border-beige);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+            transition: transform 0.3s, border-color 0.3s;
         }
 
-        .work-title {
-            font-size: 16px;
-            font-weight: 700;
-            color: var(--accent-gold);
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: var(--btn-beige);
         }
 
-        .work-desc {
-            font-size: 13px;
+        .card h3 {
+            color: var(--text-main);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .card p {
             color: var(--text-muted);
-            line-height: 1.5;
-            margin-bottom: 15px;
+            font-size: 0.95rem;
         }
 
-        .action-btn {
-            display: block;
-            width: 100%;
-            padding: 12px;
-            border-radius: 10px;
-            text-align: center;
-            font-size: 14px;
-            font-weight: 700;
+        /* Project Cards */
+        .project-card {
             text-decoration: none;
-            transition: 0.2s;
-            cursor: pointer;
-            border: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
-        .btn-preview {
-            background: var(--accent-gold);
-            color: var(--royal-navy);
+        .btn-link {
+            margin-top: 15px;
+            color: var(--text-main);
+            font-weight: 700;
+            font-size: 0.9rem;
         }
-        .btn-preview:hover { background: #b0936d; }
 
-        .btn-whatsapp {
-            background: #22c55e;
-            color: #ffffff;
-            margin-bottom: 10px;
+        /* Contact Section */
+        .contact-section {
+            background-color: var(--card-beige);
+            padding: 35px 20px;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid var(--border-beige);
+            margin-top: 30px;
         }
-        .btn-whatsapp:hover { background: #16a34a; }
 
-        .btn-linkedin {
-            background: #0284c7;
-            color: #ffffff;
-            margin-bottom: 10px;
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 20px;
         }
-        .btn-linkedin:hover { background: #0369a1; }
 
-        .btn-email {
-            background: #475569;
-            color: #ffffff;
+        .cta-btn {
+            background-color: var(--btn-beige);
+            color: var(--text-main);
+            padding: 12px 28px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: background-color 0.3s;
         }
-        .btn-email:hover { background: #334155; }
 
-        .features-list {
-            font-size: 13px;
-            color: var(--text-muted);
-            line-height: 1.8;
-            padding-right: 5px;
+        .cta-btn:hover {
+            background-color: var(--btn-hover);
         }
 
         footer {
-            margin-top: 30px;
-            font-size: 12px;
-            color: var(--text-muted);
             text-align: center;
+            margin-top: 40px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        
-        <!-- شعار الموقع المعتمد -->
-        <div class="logo-container">
-            <img src="logo.png" alt="شعار مجموعة أفق">
-        </div>
+        <!-- Header / Personal Profile -->
+        <header>
+            <img src="logo.png.PNG" alt="شعار أفق" class="logo-img">
+            
+            <!-- Name Box -->
+            <div class="name-box">
+                <h1 class="user-name">العنـود الغامــدي</h1>
+            </div>
+            
+            <div class="platform-title">منصة أفق | Ofoq</div>
+            
+            <p class="bio">منصة شخصية احترافية تجمع بين الكفاءة في إدارة الموارد البشرية وتطوير الحلول الرقمية والمشاريع المتميزة.</p>
+            
+            <div class="badges-container">
+                <span class="badge">شهادة الموارد البشرية (SHRM)</span>
+                <span class="badge">دبلوم أكاديمية التعلم</span>
+            </div>
+        </header>
 
-        <!-- المؤهلات والشهادات -->
-        <div class="header-card">
-            <span>🎓</span> دبلوم إدارة الأعمال
-        </div>
-
-        <div class="header-card">
-            <span>💼</span> شهادة التميز في الموارد البشرية (SHRM)
-        </div>
-
-        <!-- قسم نماذج من أعمالي -->
-        <div class="section-heading">
-            <span>💻</span> نماذج من أعمالي
-        </div>
-
-        <!-- بطاقة الكافيه -->
-        <div class="work-card">
-            <div class="work-title">☕ نموذج تصميم منيو إلكتروني لكافيه</div>
-            <p class="work-desc">تصميم واجهة متكاملة لكافيه عصري تشمل تصنيفات المشروبات والحلويات وقسم الاحتفالات، مع سلة طلبات ذكية وإرسال مباشر للواتساب.</p>
-            <a href="cafe.html" class="action-btn btn-preview">معاينة منيو أفق كافيه ☕🔗</a>
-        </div>
-
-        <!-- بطاقة المطعم -->
-        <div class="work-card">
-            <div class="work-title">🍽️ نموذج نظام مطعم أفق الفاخر</div>
-            <p class="work-desc">قائمة طعام متكاملة، عرض السعرات، وتنبيهات الحساسية، مع نظام حجز طاولات تفاعلي وإتمام الطلب عبر الواتساب.</p>
-            <a href="restaurant.html" class="action-btn btn-preview">معاينة مطعم أفق 🍴🔗</a>
-        </div>
-
-        <!-- بطاقة متجر العطور -->
-        <div class="work-card">
-            <div class="work-title">💎 نموذج متجر أفق للعطور والتجميل</div>
-            <p class="work-desc">متجر إلكتروني فاخر لعطور النيش والبارفوم والمكياج مع فلاتر تصنيف وعروض حصرية وخيارات الدفع المرنة.</p>
-            <a href="perfume.html" class="action-btn btn-preview">معاينة متجر العطور ✨🔗</a>
-        </div>
-
-        <!-- لماذا تختار خدماتي -->
-        <div class="section-heading">
-            <span>✨</span> لماذا تختار خدماتي؟
-        </div>
-
-        <div class="work-card">
-            <div class="features-list">
-                ✓ تصاميم حديثة وسريعة متوافقة مع الجوال.<br>
-                ✓ ربط مباشر مع الواتساب لتسهيل طلبات العملاء.<br>
-                ✓ إمكانية تخصيص المنيو والأقسام حسب هويتك التجارية.
+        <!-- Skills & Qualifications Section -->
+        <h2 class="section-title">المهارات والشهادات</h2>
+        <div class="grid-container">
+            <div class="card">
+                <h3>إدارة الموارد البشرية (HR)</h3>
+                <p>خبرة وتأهيل احترافي بشهادة SHRM العالمية للتخطيط المؤسسي وتطوير رأس المال البشري.</p>
+            </div>
+            <div class="card">
+                <h3>التأهيل الأكاديمي الشامل</h3>
+                <p>خريجة أكاديمية التعلم باجتياز الاختبار الشامل باقتدار، مع التركيز على تنظيم وإدارة الأعمال.</p>
+            </div>
+            <div class="card">
+                <h3>تطوير وتصميم الحلول</h3>
+                <p>بناء المتاجر الإلكترونية والتصاميم التفاعلية لهويات تجارية مميزة تعكس الاحترافية.</p>
             </div>
         </div>
 
-        <!-- تواصل معي للأعمال -->
-        <div class="section-heading">
-            <span>✉️</span> تواصل معي للأعمال
+        <!-- Why Choose Me Section -->
+        <h2 class="section-title">لماذا تختار خدماتي؟</h2>
+        <div class="grid-container">
+            <div class="card">
+                <h3>دقة واحترافية في التنفيذ</h3>
+                <p>الجمع بين المعرفة الإدارية المعتمدة والتطبيق البرمجي والجمالي الدقيق في كل مشروع.</p>
+            </div>
+            <div class="card">
+                <h3>رؤية شاملة للمشاريع</h3>
+                <p>فهم عميق لاحتياجات الهوية التجارية وقوائم المنتجات والخدمات بما يناسب تطلعات العملاء.</p>
+            </div>
+            <div class="card">
+                <h3>التزام وتطوير مستمر</h3>
+                <p>الحرص على تقديم أفضل تجربة مستخدم مع الحفاظ على أعلى معايير الجودة والأناقة.</p>
+            </div>
         </div>
 
-        <div class="work-card">
-            <a href="https://wa.me/966500000000" target="_blank" class="action-btn btn-whatsapp">💬 تواصل عبر الواتساب</a>
-            <a href="https://linkedin.com" target="_blank" class="action-btn btn-linkedin">💼 حسابی في LinkedIn</a>
-            <a href="mailto:info@ofoqgroup.com" class="action-btn btn-email">✉️ إرسال بريد إلكتروني</a>
+        <!-- Project Models Section -->
+        <h2 class="section-title">نماذج التصاميم والمشاريع</h2>
+        <div class="grid-container">
+            <a href="cafe.html" class="card project-card">
+                <div>
+                    <h3>كافيه أفق</h3>
+                    <p>قائمة مشروبات وحلويات تجسد تجربة المقهى العصري بهوية فاخرة.</p>
+                </div>
+                <span class="btn-link">استعرض المنيو ←</span>
+            </a>
+
+            <a href="restaurant.html" class="card project-card">
+                <div>
+                    <h3>مطعم أفق</h3>
+                    <p>قائمة طعام فاخرة بأطباق ممتازة وتجربة تقديم استثنائية.</p>
+                </div>
+                <span class="btn-link">استعرض القائمة ←</span>
+            </a>
+
+            <a href="perfume.html" class="card project-card">
+                <div>
+                    <h3>متجر عطور أفق</h3>
+                    <p>تشكيلة عطور فاخرة بتصميم استثنائي ورائع.</p>
+                </div>
+                <span class="btn-link">استعرض المتجر ←</span>
+            </a>
         </div>
 
+        <!-- Contact Section -->
+        <div class="contact-section">
+            <h2 style="color: var(--text-main); margin-bottom: 10px;">التواصل والتعاون المهني</h2>
+            <p style="color: var(--text-muted);">يسعدني التواصل لبناء شراكات مميزة أو الاستفسار عن الخدمات والمشاريع.</p>
+            
+            <div class="contact-buttons">
+                <a href="https://wa.me/" target="_blank" class="cta-btn">واتساب</a>
+                <a href="https://linkedin.com" target="_blank" class="cta-btn">لينكد إن</a>
+                <a href="mailto:example@domain.com" class="cta-btn">البريد الإلكتروني</a>
+            </div>
+        </div>
+
+        <!-- Footer -->
         <footer>
-            nood2281993.github.io © 2026
+            <p>© 2026 جميع الحقوق محفوظة - العنـود الغامــدي | منصة أفق</p>
         </footer>
-
     </div>
 
 </body>

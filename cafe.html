@@ -40,7 +40,6 @@
             border-radius: 50%;
             box-shadow: 0 0 8px #22c55e;
         }
-        /* Navigation Tabs */
         .category-tabs {
             display: flex;
             justify-content: center;
@@ -132,7 +131,6 @@
         .add-btn:hover {
             background: #c88a58;
         }
-        /* Cart Bar */
         .cart-bar {
             position: fixed;
             bottom: 20px;
@@ -160,7 +158,6 @@
             font-weight: bold;
             cursor: pointer;
         }
-        /* Footer */
         footer {
             background: #1e1513;
             color: #a89f91;
@@ -193,7 +190,6 @@
         </div>
     </header>
 
-    <!-- أزرار التنقل بين الأقسام -->
     <div class="category-tabs">
         <button class="tab-btn active" onclick="switchTab('drinks')">المشروبات ☕</button>
         <button class="tab-btn" onclick="switchTab('sweets')">الحلويات 🍰</button>
@@ -202,7 +198,6 @@
 
     <div class="container">
         
-        <!-- قسم المشروبات -->
         <div id="drinks" class="tab-content active">
             <div class="card">
                 <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?q=80&w=600" alt="سبانيش لاتيه">
@@ -265,7 +260,6 @@
             </div>
         </div>
 
-        <!-- قسم الحلويات -->
         <div id="sweets" class="tab-content">
             <div class="card">
                 <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?q=80&w=600" alt="كوكيز">
@@ -304,10 +298,9 @@
             </div>
         </div>
 
-        <!-- قسم الاحتفالات والمناسبات -->
         <div id="events" class="tab-content">
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1535141192574-5d4897c13136?q=80&w=600" alt="كيكة المناسبات">
+                <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=600" alt="كيكة المناسبات">
                 <div class="card-content">
                     <div class="card-title">
                         <span>كيكة احتفال خاصة 🎂</span>
@@ -345,7 +338,6 @@
 
     </div>
 
-    <!-- الشريط التفاعلي للطلب -->
     <div class="cart-bar" id="cartBar">
         <div>
             <span>العناصر: <b id="cartCount">0</b></span>
@@ -354,7 +346,6 @@
         <button class="cart-btn" onclick="sendOrder()">إتمام الطلب 💬</button>
     </div>
 
-    <!-- الفوتر مع بيانات التواصل -->
     <footer>
         <p><b>أفـــOfoqـــق كافيه</b> - طعم يلامس أفق خيالك ✨</p>
         <p>✉️ للطلبات والاستفسارات: <a href="mailto:info@ofoqcafe.com">info@ofoqcafe.com</a></p>
@@ -370,7 +361,6 @@
         let count = 0;
         let total = 0;
         let items = [];
-        let eventDetails = "";
 
         function switchTab(tabId) {
             document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));

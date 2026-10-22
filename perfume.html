@@ -3,103 +3,488 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>متجر عطور أفق | Ofoq Perfumes</title>
+    <title>متجر أفق للعطور والتجميل | Ofoq Store</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --royal-navy: #0f172a;
+            --navy-light: #1e293b;
+            --beige: #d4af37; /* لون ذهبي بيج فخم */
+            --beige-light: #fdfbf7;
+            --accent-gold: #c5a880;
+            --text-dark: #1e293b;
+            --text-light: #f8fafc;
+            --text-muted: #94a3b8;
+            --border: #334155;
+            --sale-red: #e74c3c;
+        }
+
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Tajawal', sans-serif;
         }
+
         body {
-            background-color: #0f172a;
-            color: #f8fafc;
-            padding: 20px;
-            text-align: center;
+            background-color: var(--royal-navy);
+            color: var(--text-light);
+            padding-bottom: 90px;
         }
+
+        /* Header */
         header {
-            margin-bottom: 30px;
-            padding: 20px 0;
-            border-bottom: 1px solid #334155;
+            background: linear-gradient(135deg, #090d16, var(--royal-navy));
+            padding: 30px 20px;
+            text-align: center;
+            border-bottom: 3px solid var(--accent-gold);
         }
-        h1 {
-            color: #fbbf24;
-            font-size: 28px;
-            margin-bottom: 8px;
+
+        header h1 {
+            color: var(--accent-gold);
+            font-size: 30px;
+            font-weight: 800;
+            margin-bottom: 5px;
         }
-        p.subtitle {
-            color: #94a3b8;
-            font-size: 14px;
+
+        header p {
+            color: var(--text-muted);
+            font-size: 13px;
         }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            max-width: 800px;
+
+        /* Container */
+        .container {
+            max-width: 1000px;
             margin: 0 auto;
-        }
-        .card {
-            background-color: #1e293b;
-            border: 1px solid #334155;
-            border-radius: 12px;
             padding: 20px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        /* Categories Bar */
+        .categories {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding: 10px 0 20px 0;
+            scrollbar-width: none;
+        }
+        .categories::-webkit-scrollbar { display: none; }
+
+        .cat-btn {
+            background: var(--navy-light);
+            border: 1px solid var(--accent-gold);
+            color: var(--text-light);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: 0.3s;
+        }
+
+        .cat-btn.active, .cat-btn:hover {
+            background: var(--accent-gold);
+            color: var(--royal-navy);
+        }
+
+        /* Section Header */
+        .section-title {
+            font-size: 20px;
+            color: var(--accent-gold);
+            margin: 25px 0 15px 0;
+            padding-right: 10px;
+            border-right: 4px solid var(--accent-gold);
+        }
+
+        /* Products Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .product-card {
+            background: var(--navy-light);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
             transition: transform 0.2s;
         }
-        .card:hover {
-            transform: translateY(-5px);
+        .product-card:hover { transform: translateY(-3px); }
+
+        .badge-tag {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            font-size: 11px;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-weight: 700;
         }
-        .card-title {
-            color: #f3f4f6;
-            font-size: 20px;
+        .badge-sale { background: var(--sale-red); color: #fff; }
+        .badge-free { background: var(--accent-gold); color: var(--royal-navy); }
+
+        .product-name {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--text-light);
+            margin-bottom: 5px;
+        }
+
+        .product-cat {
+            font-size: 11px;
+            color: var(--accent-gold);
             margin-bottom: 10px;
+            text-transform: uppercase;
         }
-        .card-desc {
-            color: #94a3b8;
+
+        .product-desc {
             font-size: 13px;
+            color: var(--text-muted);
             margin-bottom: 15px;
-            line-height: 1.5;
+            line-height: 1.4;
         }
-        .price {
-            color: #38bdf8;
-            font-weight: bold;
+
+        .price-box {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .current-price {
             font-size: 18px;
-            margin-bottom: 15px;
+            font-weight: 800;
+            color: var(--accent-gold);
         }
-        .btn {
-            background-color: #fbbf24;
-            color: #0f172a;
+
+        .old-price {
+            font-size: 13px;
+            color: var(--text-muted);
+            text-decoration: line-through;
+        }
+
+        .add-btn {
+            background: var(--accent-gold);
+            color: var(--royal-navy);
+            border: none;
+            padding: 10px;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .add-btn:hover { background: #b0936d; }
+
+        /* Payment Methods Section */
+        .payment-section {
+            background: var(--navy-light);
+            border: 1px solid var(--accent-gold);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 30px;
+            text-align: center;
+        }
+        .payment-section h3 { color: var(--accent-gold); margin-bottom: 10px; font-size: 16px; }
+        .payment-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+        .pay-badge {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--border);
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 12px;
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        /* Footer Info */
+        .footer-info {
+            background: #090d16;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 30px;
+            text-align: center;
+            border-top: 2px solid var(--accent-gold);
+        }
+        .footer-info h4 { color: var(--accent-gold); margin-bottom: 10px; }
+        .footer-info p { font-size: 13px; color: var(--text-muted); margin-bottom: 6px; }
+        .social-links {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        .social-links a {
+            color: var(--accent-gold);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* Floating Cart Bar */
+        .cart-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: #090d16;
+            color: #fff;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 2px solid var(--accent-gold);
+            box-shadow: 0 -4px 10px rgba(0,0,0,0.3);
+            z-index: 1000;
+        }
+
+        .cart-info span { color: var(--accent-gold); font-weight: 700; }
+
+        .whatsapp-btn {
+            background: #27ae60;
+            color: #fff;
             border: none;
             padding: 10px 20px;
             border-radius: 8px;
-            font-weight: bold;
+            font-weight: 700;
             cursor: pointer;
-            width: 100%;
+            text-decoration: none;
+            font-size: 14px;
         }
+        .whatsapp-btn:hover { background: #219653; }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>🌸 متجر عطور أفق</h1>
-        <p class="subtitle">تشكيلة فاخرة من العطور الشرقية والغربية</p>
+        <h1>متجر أفق للعطور والتجميل</h1>
+        <p>فخامة العطور وأناقة الجمال الملكي</p>
     </header>
 
-    <div class="grid">
-        <div class="card">
-            <h2 class="card-title">عطر أفق الذهبي 👑</h2>
-            <p class="card-desc">مزبيج من العود والمسك الأبيض مع لمسات من أزهار الياسمين الفاخرة.</p>
-            <div class="price">350 ر.س</div>
-            <button class="btn">إضافة للسلّة 🛒</button>
+    <div class="container">
+        
+        <!-- Categories Filter -->
+        <div class="categories">
+            <button class="cat-btn active" onclick="filterProducts('all')">الكل (All)</button>
+            <button class="cat-btn" onclick="filterProducts('niche')">عطور نيش (Niche)</button>
+            <button class="cat-btn" onclick="filterProducts('parfum')">عطور بارفوم (Parfum)</button>
+            <button class="cat-btn" onclick="filterProducts('men')">قسم الرجال (Men)</button>
+            <button class="cat-btn" onclick="filterProducts('women')">قسم النساء (Women)</button>
+            <button class="cat-btn" onclick="filterProducts('makeup')">قسم الميكب (Makeup)</button>
+            <button class="cat-btn" onclick="filterProducts('haircare')">أجهزة الاستشوار (Haircare)</button>
         </div>
 
-        <div class="card">
-            <h2 class="card-title">عطر أفق الليلي 🌙</h2>
-            <p class="card-desc">عطر دافئ وجذاب يتكون من الفانيلا النادرة وخشب الصندل الرفيع.</p>
-            <div class="price">290 ر.س</div>
-            <button class="btn">إضافة للسلّة 🛒</button>
+        <!-- Products List -->
+        <div id="productsContainer">
+
+            <!-- Niche Perfumes -->
+            <div class="product-group" data-cat="niche">
+                <h2 class="section-title">عطور النيش الفاخرة (Niche Perfumes)</h2>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <span class="badge-tag badge-sale">خصم 10%</span>
+                        <div>
+                            <span class="product-cat">عطور نيش</span>
+                            <div class="product-name">عطر أفق الملكي نيش</div>
+                            <p class="product-desc">تركيبة استثنائية من العود الفاخر والمسك الأبيض.</p>
+                            <div class="price-box">
+                                <span class="current-price">450 ر.س</span>
+                                <span class="old-price">500 ر.س</span>
+                            </div>
+                        </div>
+                        <button class="add-btn" onclick="addToCart('عطر أفق الملكي نيش', 450)">إضافة للسلة 🛍️</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Parfum Perfumes -->
+            <div class="product-group" data-cat="parfum">
+                <h2 class="section-title">عطور البارفوم المركزة (Parfums)</h2>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <span class="badge-tag badge-free">عرض: الثاني مجاناً</span>
+                        <div>
+                            <span class="product-cat">بارفوم مركز</span>
+                            <div class="product-name">عطر الفخامة الذهبية</div>
+                            <p class="product-desc">ثبات عالي يدوم لأكثر من 24 ساعة بنفحات شرقية دافئة.</p>
+                            <div class="price-box">
+                                <span class="current-price">320 ر.س</span>
+                            </div>
+                        </div>
+                        <button class="add-btn" onclick="addToCart('عطر الفخامة الذهبية (عرض الثاني مجاناً)', 320)">إضافة للسلة 🛍️</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Men Section -->
+            <div class="product-group" data-cat="men">
+                <h2 class="section-title">قسم الرجال (Men's Collection)</h2>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div>
+                            <span class="product-cat">رجالي</span>
+                            <div class="product-name">عطر ديور الذكوري</div>
+                            <p class="product-desc">رائحة كلاسيكية منعشة تعكس قوة الحضور والشخصية.</p>
+                            <div class="price-box">
+                                <span class="current-price">390 ر.س</span>
+                            </div>
+                        </div>
+                        <button class="add-btn" onclick="addToCart('عطر ديور الذكوري', 390)">إضافة للسلة 🛍️</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Women Section -->
+            <div class="product-group" data-cat="women">
+                <h2 class="section-title">قسم النساء (Women's Collection)</h2>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <span class="badge-tag badge-sale">خصم 10%</span>
+                        <div>
+                            <span class="product-cat">نسائي</span>
+                            <div class="product-name">عطر الياسمين الملكي</div>
+                            <p class="product-desc">مزيج ساحر من زهور الياسمين والفانيليا الفرنسية.</p>
+                            <div class="price-box">
+                                <span class="current-price">270 ر.س</span>
+                                <span class="old-price">300 ر.س</span>
+                            </div>
+                        </div>
+                        <button class="add-btn" onclick="addToCart('عطر الياسمين الملكي', 270)">إضافة للسلة 🛍️</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Makeup Section -->
+            <div class="product-group" data-cat="makeup">
+                <h2 class="section-title">قسم المكياج والتجميل (Makeup)</h2>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div>
+                            <span class="product-cat">مكياج</span>
+                            <div class="product-name">مجموعة أفق لإصلاح البشرة والمكياج</div>
+                            <p class="product-desc">مجموعة متكاملة لأرقى ماركات المكياج العالمية.</p>
+                            <div class="price-box">
+                                <span class="current-price">180 ر.س</span>
+                            </div>
+                        </div>
+                        <button class="add-btn" onclick="addToCart('مجموعة أفق للمكياج', 180)">إضافة للسلة 🛍️</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Haircare / Hair Styling Section -->
+            <div class="product-group" data-cat="haircare">
+                <h2 class="section-title">قسم الاستشوار وأجهزة العناية بالشعر (Haircare)</h2>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div>
+                            <span class="product-cat">أجهزة عناية</span>
+                            <div class="product-name">استشوار وسيراميك أفق الاحترافي</div>
+                            <p class="product-desc">تقنية الأيونات المتطورة لتجفيف وتصفيف سلس وآمن.</p>
+                            <div class="price-box">
+                                <span class="current-price">290 ر.س</span>
+                            </div>
+                        </div>
+                        <button class="add-btn" onclick="addToCart('استشوار وسيراميك أفق الاحترافي', 290)">إضافة للسلة 🛍️</button>
+                    </div>
+                </div>
+            </div>
+
         </div>
+
+        <!-- Payment Methods Banner -->
+        <div class="payment-section">
+            <h3>💳 خيارات الدفع المتاحة في المتجر</h3>
+            <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 5px;">نوفر لك طرق دفع مرنة وآمنة بالكامل</p>
+            <div class="payment-icons">
+                <span class="pay-badge">🟡 تابي (Tabby)</span>
+                <span class="pay-badge">🟢 تمارا (Tamara)</span>
+                <span class="pay-badge">💳 الدفع الإلكتروني (مدى / فيزا)</span>
+                <span class="pay-badge">💵 الدفع عند الاستلام (كاش)</span>
+            </div>
+        </div>
+
+        <!-- Footer / Contact Info -->
+        <div class="footer-info">
+            <h4>📍 التواصل والدعم الفني</h4>
+            <p><strong>رقم التواصل واتساب:</strong> 966500000000+</p>
+            <p><strong>البريد الإلكتروني:</strong> support@ofoqstore.com</p>
+            <div class="social-links">
+                <a href="#">إنستقرام</a>
+                <a href="#">تيك توك</a>
+                <a href="#">سناب شات</a>
+                <a href="#">تويتر (X)</a>
+            </div>
+        </div>
+
     </div>
 
+    <!-- Floating Cart Bar -->
+    <div class="cart-bar">
+        <div class="cart-info">
+            المنتجات بالسلة: <span id="cartCount">0</span> | المجموع: <span id="cartTotal">0</span> ر.س
+        </div>
+        <button class="whatsapp-btn" onclick="checkoutWhatsApp()">إتمام الطلب عبر الواتساب 📲</button>
+    </div>
+
+    <script>
+        let cart = [];
+
+        function addToCart(name, price) {
+            cart.push({ name, price });
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            document.getElementById('cartCount').innerText = cart.length;
+            let total = cart.reduce((sum, item) => sum + item.price, 0);
+            document.getElementById('cartTotal').innerText = total;
+        }
+
+        function checkoutWhatsApp() {
+            if (cart.length === 0) {
+                alert('سلة المشتريات فارغة!');
+                return;
+            }
+
+            let text = "مرحباً، أرغب بطلب المنتجات التالية من متجر أفق:%0A";
+            cart.forEach((item, index) => {
+                text += `${index + 1}. ${item.name} - ${item.price} ر.س%0A`;
+            });
+            let total = cart.reduce((sum, item) => sum + item.price, 0);
+            text += `%0A*الإجمالي الكلي: ${total} ر.س*%0A%0Aأرغب بالدفع عبر: (اختر الطريقة لاحقاً)`;
+
+            let phone = "966500000000"; // رقم الواتساب
+            window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
+        }
+
+        // Category Filter
+        function filterProducts(cat) {
+            let buttons = document.querySelectorAll('.cat-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            let groups = document.querySelectorAll('.product-group');
+            groups.forEach(group => {
+                if (cat === 'all' || group.getAttribute('data-cat') === cat) {
+                    group.style.display = 'block';
+                } else {
+                    group.style.display = 'none';
+                }
+            });
+        }
+    </script>
 </body>
 </html>

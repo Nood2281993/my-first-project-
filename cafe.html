@@ -14,7 +14,7 @@
         body {
             background-color: #fcfbf9;
             color: #2c2a29;
-            padding-bottom: 100px;
+            padding-bottom: 120px;
         }
         header {
             background: #2b1e1a;
@@ -45,6 +45,14 @@
             margin: 20px auto;
             padding: 0 15px;
         }
+        .section-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #2b1e1a;
+            margin: 25px 0 15px;
+            border-right: 4px solid #c88a58;
+            padding-right: 10px;
+        }
         .card {
             background: #ffffff;
             border-radius: 16px;
@@ -55,19 +63,19 @@
             border: 1px solid #f0eae1;
         }
         .card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-3px);
             box-shadow: 0 8px 20px rgba(0,0,0,0.1);
         }
         .card img {
             width: 100%;
-            height: 200px;
+            height: 180px;
             object-fit: cover;
         }
         .card-content {
-            padding: 18px;
+            padding: 16px;
         }
         .card-title {
-            font-size: 18px;
+            font-size: 17px;
             font-weight: bold;
             color: #2b1e1a;
             display: flex;
@@ -77,11 +85,12 @@
         .price {
             color: #c88a58;
             font-size: 16px;
+            font-weight: bold;
         }
         .card-desc {
             color: #786f6a;
-            font-size: 14px;
-            margin: 10px 0 15px;
+            font-size: 13px;
+            margin: 8px 0 12px;
             line-height: 1.5;
         }
         .add-btn {
@@ -114,16 +123,38 @@
             justify-content: space-between;
             align-items: center;
             box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            z-index: 1000;
         }
         .cart-btn {
             background: #c88a58;
             color: #fff;
             border: none;
-            padding: 8px 16px;
+            padding: 10px 18px;
             border-radius: 20px;
             font-size: 14px;
             font-weight: bold;
             cursor: pointer;
+        }
+        /* Footer */
+        footer {
+            background: #1e1513;
+            color: #a89f91;
+            padding: 30px 20px;
+            text-align: center;
+            margin-top: 40px;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+        footer a {
+            color: #c88a58;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .social-links {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
         }
     </style>
 </head>
@@ -139,15 +170,18 @@
 
     <div class="container">
         
+        <!-- قسم المشروبات الباردة والمنعشة -->
+        <div class="section-title">المشروبات الباردة والمنعشة 🧊</div>
+
         <div class="card">
             <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?q=80&w=600" alt="سبانيش لاتيه">
             <div class="card-content">
                 <div class="card-title">
-                    <span>سبانيش لاتيه</span>
+                    <span>سبانيش لاتيه بارد</span>
                     <span class="price">22 ر.س</span>
                 </div>
                 <p class="card-desc">إسبريسو غني مع حليب مبخر ولمسة حلاوة موزونة.</p>
-                <button class="add-btn" onclick="addToCart('سبانيش لاتيه', 22)">إضافة للطلب +</button>
+                <button class="add-btn" onclick="addToCart('سبانيش لاتيه بارد', 22)">إضافة للطلب +</button>
             </div>
         </div>
 
@@ -163,16 +197,106 @@
             </div>
         </div>
 
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?q=80&w=600" alt="موهيتو">
+            <div class="card-content">
+                <div class="card-title">
+                    <span>موهيتو منعش</span>
+                    <span class="price">20 ر.س</span>
+                </div>
+                <p class="card-desc">مكس الصودا مع النعناع الطازج والليمون ونكهة اختيارية.</p>
+                <button class="add-btn" onclick="addToCart('موهيتو منعش', 20)">إضافة للطلب +</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1613478223719-2ab802602423?q=80&w=600" alt="عصير برتقال">
+            <div class="card-content">
+                <div class="card-title">
+                    <span>عصير برتقال طازج</span>
+                    <span class="price">18 ر.س</span>
+                </div>
+                <p class="card-desc">برتقال طبيعي معصور طازج بدون أي إضافات.</p>
+                <button class="add-btn" onclick="addToCart('عصير برتقال طازج', 18)">إضافة للطلب +</button>
+            </div>
+        </div>
+
+        <!-- قسم المشروبات الساخنة -->
+        <div class="section-title">المشروبات الساخنة ☕</div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1534778101976-62847782c213?q=80&w=600" alt="كابتشينو">
+            <div class="card-content">
+                <div class="card-title">
+                    <span>كابتشينو</span>
+                    <span class="price">18 ر.س</span>
+                </div>
+                <p class="card-desc">توازن مثالي بين الإسبريسو والحليب المخفوق مع رغوة كثيفة.</p>
+                <button class="add-btn" onclick="addToCart('كابتشينو', 18)">إضافة للطلب +</button>
+            </div>
+        </div>
+
+        <!-- قسم الحلويات -->
+        <div class="section-title">الحلويات والسكاكر 🍪🍰</div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?q=80&w=600" alt="كوكيز">
+            <div class="card-content">
+                <div class="card-title">
+                    <span>كوكيز شوكولاتة</span>
+                    <span class="price">12 ر.س</span>
+                </div>
+                <p class="card-desc">كوكيز طري ومخبوز طازج بقطع الشوكولاتة الغنية.</p>
+                <button class="add-btn" onclick="addToCart('كوكيز شوكولاتة', 12)">إضافة للطلب +</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1533134242443-d4fd215305ad?q=80&w=600" alt="تشيز كيك التوت">
+            <div class="card-content">
+                <div class="card-title">
+                    <span>تشيز كيك التوت</span>
+                    <span class="price">22 ر.س</span>
+                </div>
+                <p class="card-desc">طبقة غنية وقشذية مع صوص التوت الطبيعي اللذيذ.</p>
+                <button class="add-btn" onclick="addToCart('تشيز كيك التوت', 22)">إضافة للطلب +</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=600" alt="تارت البيكان">
+            <div class="card-content">
+                <div class="card-title">
+                    <span>تارت البيكان</span>
+                    <span class="price">20 ر.س</span>
+                </div>
+                <p class="card-desc">تارت مقرمش محشو بجوز البيكان والكراميل الدافئ.</p>
+                <button class="add-btn" onclick="addToCart('تارت البيكان', 20)">إضافة للطلب +</button>
+            </div>
+        </div>
+
     </div>
 
     <!-- الشريط التفاعلي للطلب -->
     <div class="cart-bar" id="cartBar">
         <div>
-            <span>عناصر الطلب: <b id="cartCount">0</b></span>
+            <span>العناصر: <b id="cartCount">0</b></span>
             <div style="font-size: 12px; color: #d1c7bd;">المجموع: <span id="cartTotal">0</span> ر.س</div>
         </div>
         <button class="cart-btn" onclick="sendOrder()">إتمام الطلب 💬</button>
     </div>
+
+    <!-- الفوتر مع بيانات التواصل -->
+    <footer>
+        <p><b>أفـــOfoqـــق كافيه</b> - طعم يلامس أفق خيالك ✨</p>
+        <p>✉️ للطلبات والاستفسارات: <a href="mailto:info@ofoqcafe.com">info@ofoqcafe.com</a></p>
+        <div class="social-links">
+            <a href="#">انستغرام</a> | 
+            <a href="#">تيك توك</a> | 
+            <a href="#">سناب شات</a>
+        </div>
+        <p style="margin-top: 15px; font-size: 11px; opacity: 0.6;">© 2026 جميع الحقوق محفوظة لـ أفق كافيه.</p>
+    </footer>
 
     <script>
         let count = 0;
@@ -192,10 +316,10 @@
 
         function sendOrder() {
             if (count === 0) {
-                alert('سلة الطلبات فارغة! اختر مشروبك المفضل أولاً ☕');
+                alert('سلة الطلبات فارغة! اختر مشروبك أو الحلى المفضل أولاً ☕');
                 return;
             }
-            let message = "مرحباً، أرغب بطلب المشروبات التالية من أفق كافيه:\n- " + items.join("\n- ") + "\nالمجموع الكلي: " + total + " ر.س";
+            let message = "مرحباً، أرغب بطلب الآتي من أفق كافيه:\n- " + items.join("\n- ") + "\n\nالمجموع الكلي: " + total + " ر.س";
             let whatsappUrl = "https://wa.me/?text=" + encodeURIComponent(message);
             window.open(whatsappUrl, '_blank');
         }

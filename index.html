@@ -37,6 +37,22 @@
             max-width: 500px;
         }
 
+        /* Logo Styling */
+        .logo-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .logo-container img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            border-radius: 50%;
+            border: 2px solid var(--accent-gold);
+            padding: 5px;
+            background: var(--navy-light);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
         .header-card {
             background: var(--navy-light);
             border: 1px solid var(--border);
@@ -106,10 +122,10 @@
         }
 
         .btn-preview {
-            background: #38bdf8;
-            color: #0f172a;
+            background: var(--accent-gold);
+            color: var(--royal-navy);
         }
-        .btn-preview:hover { background: #0ea5e9; }
+        .btn-preview:hover { background: #b0936d; }
 
         .btn-whatsapp {
             background: #22c55e;
@@ -150,6 +166,11 @@
 
     <div class="container">
         
+        <!-- شعار الموقع المعتمد -->
+        <div class="logo-container">
+            <img src="logo.png" alt="شعار مجموعة أفق">
+        </div>
+
         <!-- المؤهلات والشهادات -->
         <div class="header-card">
             <span>🎓</span> دبلوم إدارة الأعمال
@@ -171,14 +192,14 @@
             <a href="cafe.html" class="action-btn btn-preview">معاينة منيو أفق كافيه ☕🔗</a>
         </div>
 
-        <!-- بطاقة المطعم (المضافة حديثاً) -->
+        <!-- بطاقة المطعم -->
         <div class="work-card">
             <div class="work-title">🍽️ نموذج نظام مطعم أفق الفاخر</div>
             <p class="work-desc">قائمة طعام متكاملة، عرض السعرات، وتنبيهات الحساسية، مع نظام حجز طاولات تفاعلي وإتمام الطلب عبر الواتساب.</p>
             <a href="restaurant.html" class="action-btn btn-preview">معاينة مطعم أفق 🍴🔗</a>
         </div>
 
-        <!-- بطاقة متجر العطور (المضافة حديثاً) -->
+        <!-- بطاقة متجر العطور -->
         <div class="work-card">
             <div class="work-title">💎 نموذج متجر أفق للعطور والتجميل</div>
             <p class="work-desc">متجر إلكتروني فاخر لعطور النيش والبارفوم والمكياج مع فلاتر تصنيف وعروض حصرية وخيارات الدفع المرنة.</p>

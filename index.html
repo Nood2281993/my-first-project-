@@ -3,302 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>العنـود الغامــدي | أفــDEVــق</title>
-    <!-- خط تجول Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <title>مجموعة أفق</title>
     <style>
-        :root {
-            --bg-beige: #f5f0eb;         /* خلفية بيج دافئة */
-            --card-beige: #ffffff;       /* كروت بيضاء ناصعة */
-            --text-main: #4a3f35;        /* بني بيج داكن مريح للعين */
-            --text-muted: #8c7a6b;       /* بيج متوسط للتفاصيل */
-            --border-beige: #e6ded6;     /* حدود بيج ناعمة */
-            --tag-bg: #ede6df;           /* خلفية المهارات والبطاقات */
-            --btn-beige: #d7c4b7;        /* بيج دافئ للأزرار */
-            --btn-hover: #c4b0a2;        /* درجة أغمق عند التمرير */
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Tajawal', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            background-color: var(--bg-beige);
-            color: var(--text-main);
-            line-height: 1.6;
-            padding: 20px;
+            background-color: #0f172a;
+            color: #f8fafc;
             display: flex;
-            flex-direction: column;
+            justify-content: center;
             align-items: center;
             min-height: 100vh;
+            padding: 20px;
         }
 
         .container {
-            max-width: 700px;
             width: 100%;
+            max-width: 450px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
         }
 
-        /* Header Section */
-        header {
-            text-align: center;
-            padding: 35px 20px;
-            background-color: var(--card-beige);
-            border-radius: 20px;
-            border: 1px solid var(--border-beige);
-            margin-bottom: 25px;
-            box-shadow: 0 4px 15px rgba(140, 122, 107, 0.06);
-        }
-
-        .logo-img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--border-beige);
-            margin-bottom: 15px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
-        }
-
-        .user-name {
-            color: var(--text-main);
-            font-size: 1.8rem;
-            font-weight: 800;
-            margin-bottom: 8px;
-        }
-
-        /* Platform Box Under Name */
-        .platform-box {
-            display: inline-block;
-            background-color: var(--bg-beige);
-            border: 1px solid var(--border-beige);
-            padding: 6px 20px;
-            border-radius: 12px;
-            margin-bottom: 12px;
-        }
-
-        .platform-title {
-            color: var(--text-main);
-            font-size: 1.1rem;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-        }
-
-        .job-title {
-            color: var(--text-muted);
-            font-size: 1rem;
-            font-weight: 600;
-        }
-
-        /* Section Titles */
-        .section-title {
-            color: var(--text-main);
-            font-size: 1.3rem;
-            margin: 30px 0 15px 0;
-            text-align: right;
-            border-right: 4px solid var(--btn-beige);
-            padding-right: 10px;
-            font-weight: 800;
-        }
-
-        .card-box {
-            background-color: var(--card-beige);
-            padding: 22px;
+        .card {
+            background-color: #1e293b;
+            border: 1px solid #334155;
             border-radius: 16px;
-            border: 1px solid var(--border-beige);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
-            margin-bottom: 15px;
-        }
-
-        /* Technical Skills Chips */
-        .skills-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            justify-content: flex-start;
-        }
-
-        .skill-chip {
-            background-color: var(--tag-bg);
-            color: var(--text-main);
-            border: 1px solid var(--border-beige);
-            padding: 8px 18px;
-            border-radius: 25px;
-            font-size: 0.95rem;
-            font-weight: 700;
-            direction: ltr;
-        }
-
-        .skill-chip.rtl-chip {
-            direction: rtl;
-        }
-
-        /* Certificates List */
-        .cert-item {
-            background-color: var(--bg-beige);
-            border: 1px solid var(--border-beige);
-            padding: 14px 18px;
-            border-radius: 12px;
-            margin-bottom: 10px;
-            font-weight: 700;
-            font-size: 1rem;
-            color: var(--text-main);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .cert-item:last-child {
-            margin-bottom: 0;
-        }
-
-        /* Project Buttons */
-        .project-btn {
-            display: block;
-            background-color: var(--card-beige);
-            color: var(--text-main);
-            text-decoration: none;
-            padding: 16px 20px;
-            border-radius: 12px;
-            border: 1px solid var(--border-beige);
-            margin-bottom: 12px;
-            font-weight: 700;
-            font-size: 1.05rem;
+            padding: 24px;
             text-align: center;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
         }
 
-        .project-btn:hover {
-            background-color: var(--btn-beige);
+        .card h2 {
+            font-size: 1.5rem;
+            color: #f1f5f9;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #94a3b8;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            width: 100%;
+            padding: 12px 24px;
+            background-color: #d4af37;
+            color: #0f172a;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #c5a028;
             transform: translateY(-2px);
         }
 
-        /* Why Choose Me Section */
-        .feature-item {
-            margin-bottom: 16px;
+        .icon-top {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            display: block;
         }
 
-        .feature-item:last-child {
-            margin-bottom: 0;
+        .footer-social {
+            margin-top: 10px;
+            padding-top: 15px;
+            border-top: 1px solid #334155;
         }
 
-        .feature-item h4 {
-            color: var(--text-main);
-            font-size: 1.05rem;
-            margin-bottom: 4px;
-        }
-
-        .feature-item p {
-            color: var(--text-muted);
-            font-size: 0.92rem;
+        .contact-info {
+            font-size: 0.85rem;
+            color: #94a3b8;
+            margin-bottom: 15px;
             line-height: 1.5;
         }
 
-        /* Contact Section */
-        .contact-btn {
-            display: block;
-            background-color: var(--btn-beige);
-            color: var(--text-main);
+        .contact-info a {
+            color: #d4af37;
             text-decoration: none;
-            padding: 14px;
-            border-radius: 12px;
-            text-align: center;
-            font-weight: 700;
-            margin-bottom: 10px;
-            transition: background-color 0.3s;
         }
 
-        .contact-btn:hover {
-            background-color: var(--btn-hover);
+        .social-links {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
         }
 
-        footer {
-            text-align: center;
-            margin-top: 35px;
-            color: var(--text-muted);
+        .social-btn {
+            flex: 1;
+            padding: 8px 12px;
+            background-color: #0f172a;
+            color: #cbd5e1;
+            text-decoration: none;
             font-size: 0.85rem;
+            border-radius: 6px;
+            border: 1px solid #334155;
+            text-align: center;
+        }
+
+        .copyright {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #64748b;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <!-- Header / Personal Profile -->
-        <header>
-            <img src="logo.png" onerror="this.onerror=null; this.src='logo.PNG'; if(!this.complete) this.src='logo.png.PNG';" alt="شعار أفــDEVــق" class="logo-img">
+
+        <!-- بطاقة المطعم -->
+        <div class="card">
+            <h2>مطعم أفق الفاخر</h2>
+            <p>استكشف قائمتنا الفاخرة من الوجبات الرئيسية، والمقبلات، وتعرّف على السعرات والحساسية، واحجز طاولتك.</p>
+            <a href="#" class="btn">دخول المطعم 🍽️</a>
+        </div>
+
+        <!-- بطاقة المتجر -->
+        <div class="card">
+            <span class="icon-top">💎</span>
+            <h2>متجر أفق للعطور والتجميل</h2>
+            <p>تصفح أقسام عطور النيش، والبارفوم المركزة، والمكياج، وأجهزة العناية، واستفد من العروض الحصرية.</p>
+            <a href="#" class="btn">دخول المتجر ✨</a>
+        </div>
+
+        <!-- بطاقة أفق كافيه (المُعدلة كعمل مستقل) -->
+        <div class="card">
+            <span class="icon-top">☕</span>
+            <h2>أفق كافيه الفاخر</h2>
+            <p>استمتع بأجود المشروبات الساخنة والباردة والحلويات الفاخرة في ركن الكوفي الخاص بنا.</p>
+            <a href="#" class="btn">دخول الكافيه ☕</a>
             
-            <h1 class="user-name">العنـود الغامــدي</h1>
-            
-            <div class="platform-box">
-                <span class="platform-title">أفــDEVــق</span>
-            </div>
-            
-            <div class="job-title">مطورة واجهات ومواقع إلكترونية 🚀</div>
-        </header>
-
-        <!-- Technical Skills Section -->
-        <h2 class="section-title">المهارات التقنية</h2>
-        <div class="card-box">
-            <div class="skills-container">
-                <span class="skill-chip">HTML5</span>
-                <span class="skill-chip">CSS3</span>
-                <span class="skill-chip">JavaScript</span>
-                <span class="skill-chip">Responsive Design</span>
-                <span class="skill-chip rtl-chip">تطوير منيو إلكتروني تفاعلي</span>
+            <!-- تفاصيل التواصل وحسابات التواصل الاجتماعي -->
+            <div class="footer-social">
+                <div class="contact-info">
+                    رقم التواصل: 966500000000+ | البريد الإلكتروني:<br>
+                    <a href="mailto:info@ofogcafe.com">info@ofogcafe.com</a>
+                </div>
+                <div class="social-links">
+                    <a href="#" class="social-btn">لينكد إن (LinkedIn)</a>
+                    <a href="#" class="social-btn">إنستغرام</a>
+                    <a href="#" class="social-btn">سناب شات</a>
+                </div>
             </div>
         </div>
 
-        <!-- Certificates Section -->
-        <h2 class="section-title">الشهادات</h2>
-        <div class="card-box">
-            <div class="cert-item">
-                🎓 دبلوم إدارة الأعمال
-            </div>
-            <div class="cert-item">
-                💼 شهادة التميز في الموارد البشرية (SHRM)
-            </div>
+        <div class="copyright">
+            جميع الحقوق محفوظة © مجموعة أفق 2026
         </div>
 
-        <!-- Projects Section (Direct Links) -->
-        <h2 class="section-title">نماذج من أعمالي</h2>
-        <div>
-            <a href="cafe.html" class="project-btn">معاينة منيو كافيه أفق ☕</a>
-            <a href="restaurant.html" class="project-btn">معاينة قائمة مطعم أفق 🍽️</a>
-            <a href="perfume.html" class="project-btn">معاينة متجر عطور أفق 🧴</a>
-        </div>
-
-        <!-- Why Choose Me Section -->
-        <h2 class="section-title">لماذا تختار خدماتي؟ ✨</h2>
-        <div class="card-box">
-            <div class="feature-item">
-                <h4>✓ دقة التطوير والبرمجة لبناء مشاريع ناجحة:</h4>
-                <p>تقديم حلول رقمية مخصصة تجمع بين كفاءة التخطيط والدقة البرمجية العالية.</p>
-            </div>
-            <div class="feature-item">
-                <h4>✓ تصاميم عصرية واحترافية تعكس هوية علامتك التجارية:</h4>
-                <p>بناء واجهات رقمية مخصصة، أنيقة، ومصممة بعناية لتقديم تجربة مستخدم سلسة وجذابة.</p>
-            </div>
-            <div class="feature-item">
-                <h4>✓ التزام بأعلى معايير الجودة والدقة في العمل:</h4>
-                <p>الحرص على تنفيذ كافة التفاصيل البرمجية والإدارية وفق أعلى المعايير المهنية لضمان تحويل الفكرة إلى واقع متميز.</p>
-            </div>
-        </div>
-
-        <!-- Contact Section -->
-        <h2 class="section-title">تواصل معي للأعمال ✉️</h2>
-        <div class="card-box">
-            <a href="https://wa.me/" target="_blank" class="contact-btn">تواصل عبر الواتساب 💬</a>
-            <a href="https://linkedin.com" target="_blank" class="contact-btn">حسابي في LinkedIn 💼</a>
-            <a href="mailto:example@domain.com" class="contact-btn">إرسال بريد إلكتروني ✉️</a>
-        </div>
-
-        <!-- Footer -->
-        <footer>
-            <p>© 2026 جميع الحقوق محفوظة - العنـود الغامــدي | أفــDEVــق</p>
-        </footer>
     </div>
 
 </body>

@@ -40,18 +40,43 @@
             border-radius: 50%;
             box-shadow: 0 0 8px #22c55e;
         }
+        /* Navigation Tabs */
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            background: #f0eae1;
+            padding: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .tab-btn {
+            border: none;
+            background: transparent;
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #524741;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .tab-btn.active {
+            background: #2b1e1a;
+            color: #ffffff;
+        }
         .container {
             max-width: 500px;
             margin: 20px auto;
             padding: 0 15px;
         }
-        .section-title {
-            font-size: 18px;
-            font-weight: bold;
-            color: #2b1e1a;
-            margin: 25px 0 15px;
-            border-right: 4px solid #c88a58;
-            padding-right: 10px;
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
         }
         .card {
             background: #ffffff;
@@ -168,110 +193,153 @@
         </div>
     </header>
 
+    <!-- أزرار التنقل بين الأقسام -->
+    <div class="category-tabs">
+        <button class="tab-btn active" onclick="switchTab('drinks')">المشروبات ☕</button>
+        <button class="tab-btn" onclick="switchTab('sweets')">الحلويات 🍰</button>
+        <button class="tab-btn" onclick="switchTab('events')">الاحتفالات 🎉</button>
+    </div>
+
     <div class="container">
         
-        <!-- قسم المشروبات الباردة والمنعشة -->
-        <div class="section-title">المشروبات الباردة والمنعشة 🧊</div>
-
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?q=80&w=600" alt="سبانيش لاتيه">
-            <div class="card-content">
-                <div class="card-title">
-                    <span>سبانيش لاتيه بارد</span>
-                    <span class="price">22 ر.س</span>
+        <!-- قسم المشروبات -->
+        <div id="drinks" class="tab-content active">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?q=80&w=600" alt="سبانيش لاتيه">
+                <div class="card-content">
+                    <div class="card-title">
+                        <span>سبانيش لاتيه بارد</span>
+                        <span class="price">22 ر.س</span>
+                    </div>
+                    <p class="card-desc">إسبريسو غني مع حليب مبخر ولمسة حلاوة موزونة.</p>
+                    <button class="add-btn" onclick="addToCart('سبانيش لاتيه بارد', 22)">إضافة للطلب +</button>
                 </div>
-                <p class="card-desc">إسبريسو غني مع حليب مبخر ولمسة حلاوة موزونة.</p>
-                <button class="add-btn" onclick="addToCart('سبانيش لاتيه بارد', 22)">إضافة للطلب +</button>
             </div>
-        </div>
 
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1517256064527-09c73fc73e38?q=80&w=600" alt="V60 بارد">
-            <div class="card-content">
-                <div class="card-title">
-                    <span>V60 بارد</span>
-                    <span class="price">24 ر.س</span>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1517256064527-09c73fc73e38?q=80&w=600" alt="V60 بارد">
+                <div class="card-content">
+                    <div class="card-title">
+                        <span>V60 بارد</span>
+                        <span class="price">24 ر.س</span>
+                    </div>
+                    <p class="card-desc">قهوة مقطرة بإتقان مع نكهات فاكهية منعشة.</p>
+                    <button class="add-btn" onclick="addToCart('V60 بارد', 24)">إضافة للطلب +</button>
                 </div>
-                <p class="card-desc">قهوة مقطرة بإتقان مع نكهات فاكهية منعشة.</p>
-                <button class="add-btn" onclick="addToCart('V60 بارد', 24)">إضافة للطلب +</button>
             </div>
-        </div>
 
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?q=80&w=600" alt="موهيتو">
-            <div class="card-content">
-                <div class="card-title">
-                    <span>موهيتو منعش</span>
-                    <span class="price">20 ر.س</span>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?q=80&w=600" alt="موهيتو">
+                <div class="card-content">
+                    <div class="card-title">
+                        <span>موهيتو منعش</span>
+                        <span class="price">20 ر.س</span>
+                    </div>
+                    <p class="card-desc">مكس الصودا مع النعناع الطازج والليمون ونكهة اختيارية.</p>
+                    <button class="add-btn" onclick="addToCart('موهيتو منعش', 20)">إضافة للطلب +</button>
                 </div>
-                <p class="card-desc">مكس الصودا مع النعناع الطازج والليمون ونكهة اختيارية.</p>
-                <button class="add-btn" onclick="addToCart('موهيتو منعش', 20)">إضافة للطلب +</button>
             </div>
-        </div>
 
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1613478223719-2ab802602423?q=80&w=600" alt="عصير برتقال">
-            <div class="card-content">
-                <div class="card-title">
-                    <span>عصير برتقال طازج</span>
-                    <span class="price">18 ر.س</span>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1613478223719-2ab802602423?q=80&w=600" alt="عصير برتقال">
+                <div class="card-content">
+                    <div class="card-title">
+                        <span>عصير برتقال طازج</span>
+                        <span class="price">18 ر.س</span>
+                    </div>
+                    <p class="card-desc">برتقال طبيعي معصور طازج بدون أي إضافات.</p>
+                    <button class="add-btn" onclick="addToCart('عصير برتقال طازج', 18)">إضافة للطلب +</button>
                 </div>
-                <p class="card-desc">برتقال طبيعي معصور طازج بدون أي إضافات.</p>
-                <button class="add-btn" onclick="addToCart('عصير برتقال طازج', 18)">إضافة للطلب +</button>
             </div>
-        </div>
 
-        <!-- قسم المشروبات الساخنة -->
-        <div class="section-title">المشروبات الساخنة ☕</div>
-
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1534778101976-62847782c213?q=80&w=600" alt="كابتشينو">
-            <div class="card-content">
-                <div class="card-title">
-                    <span>كابتشينو</span>
-                    <span class="price">18 ر.س</span>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1534778101976-62847782c213?q=80&w=600" alt="كابتشينو">
+                <div class="card-content">
+                    <div class="card-title">
+                        <span>كابتشينو ساخن</span>
+                        <span class="price">18 ر.س</span>
+                    </div>
+                    <p class="card-desc">توازن مثالي بين الإسبريسو والحليب المخفوق مع رغوة كثيفة.</p>
+                    <button class="add-btn" onclick="addToCart('كابتشينو ساخن', 18)">إضافة للطلب +</button>
                 </div>
-                <p class="card-desc">توازن مثالي بين الإسبريسو والحليب المخفوق مع رغوة كثيفة.</p>
-                <button class="add-btn" onclick="addToCart('كابتشينو', 18)">إضافة للطلب +</button>
             </div>
         </div>
 
         <!-- قسم الحلويات -->
-        <div class="section-title">الحلويات والسكاكر 🍪🍰</div>
-
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?q=80&w=600" alt="كوكيز">
-            <div class="card-content">
-                <div class="card-title">
-                    <span>كوكيز شوكولاتة</span>
-                    <span class="price">12 ر.س</span>
+        <div id="sweets" class="tab-content">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?q=80&w=600" alt="كوكيز">
+                <div class="card-content">
+                    <div class="card-title">
+                        <span>كوكيز شوكولاتة</span>
+                        <span class="price">12 ر.س</span>
+                    </div>
+                    <p class="card-desc">كوكيز طري ومخبوز طازج بقطع الشوكولاتة الغنية.</p>
+                    <button class="add-btn" onclick="addToCart('كوكيز شوكولاتة', 12)">إضافة للطلب +</button>
                 </div>
-                <p class="card-desc">كوكيز طري ومخبوز طازج بقطع الشوكولاتة الغنية.</p>
-                <button class="add-btn" onclick="addToCart('كوكيز شوكولاتة', 12)">إضافة للطلب +</button>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1533134242443-d4fd215305ad?q=80&w=600" alt="تشيز كيك التوت">
+                <div class="card-content">
+                    <div class="card-title">
+                        <span>تشيز كيك التوت</span>
+                        <span class="price">22 ر.س</span>
+                    </div>
+                    <p class="card-desc">طبقة غنية وقشدية مع صوص التوت الطبيعي اللذيذ.</p>
+                    <button class="add-btn" onclick="addToCart('تشيز كيك التوت', 22)">إضافة للطلب +</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=600" alt="تارت البيكان">
+                <div class="card-content">
+                    <div class="card-title">
+                        <span>تارت البيكان</span>
+                        <span class="price">20 ر.س</span>
+                    </div>
+                    <p class="card-desc">تارت مقرمش محشو بجوز البيكان والكراميل الدافئ.</p>
+                    <button class="add-btn" onclick="addToCart('تارت البيكان', 20)">إضافة للطلب +</button>
+                </div>
             </div>
         </div>
 
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1533134242443-d4fd215305ad?q=80&w=600" alt="تشيز كيك التوت">
-            <div class="card-content">
-                <div class="card-title">
-                    <span>تشيز كيك التوت</span>
-                    <span class="price">22 ر.س</span>
+        <!-- قسم الاحتفالات والمناسبات -->
+        <div id="events" class="tab-content">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1535141192574-5d4897c13136?q=80&w=600" alt="كيكة المناسبات">
+                <div class="card-content">
+                    <div class="card-title">
+                        <span>كيكة احتفال خاصة 🎂</span>
+                        <span class="price">150 ر.س</span>
+                    </div>
+                    <p class="card-desc">كيكة فاخرة تناسب (عيد ميلاد، نجاح، ذكرى زواج، خطوبة) مع كتابة الاسم والعبارة حسب الطلب.</p>
+                    <button class="add-btn" onclick="addToCart('كيكة احتفال خاصة', 150, true)">إضافة وتخصيص الاسم +</button>
                 </div>
-                <p class="card-desc">طبقة غنية وقشذية مع صوص التوت الطبيعي اللذيذ.</p>
-                <button class="add-btn" onclick="addToCart('تشيز كيك التوت', 22)">إضافة للطلب +</button>
             </div>
-        </div>
 
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=600" alt="تارت البيكان">
-            <div class="card-content">
-                <div class="card-title">
-                    <span>تارت البيكان</span>
-                    <span class="price">20 ر.س</span>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?q=80&w=600" alt="باقة الاحتفال">
+                <div class="card-content">
+                    <div class="card-title">
+                        <span>باقة الشموع والبالونات 🎈</span>
+                        <span class="price">35 ر.س</span>
+                    </div>
+                    <p class="card-desc">شموع شرار مميزة + سلسلة بالونات مجهزة للطاولة لإضافة بهجة وطابع احتفالي.</p>
+                    <button class="add-btn" onclick="addToCart('باقة الشموع والبالونات', 35)">إضافة للطلب +</button>
                 </div>
-                <p class="card-desc">تارت مقرمش محشو بجوز البيكان والكراميل الدافئ.</p>
-                <button class="add-btn" onclick="addToCart('تارت البيكان', 20)">إضافة للطلب +</button>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?q=80&w=600" alt="تنسيق طاولة">
+                <div class="card-content">
+                    <div class="card-title">
+                        <span>حزمة تنسيق الطاولة الكاملة ✨</span>
+                        <span class="price">120 ر.س</span>
+                    </div>
+                    <p class="card-desc">تنسيق مخصص للشخصين (ذكرى زواج / خطوبة / نجاح) يشمل كروت إهداء، ورد، وإضاءة خاصة.</p>
+                    <button class="add-btn" onclick="addToCart('تنسيق طاولة كامل', 120)">إضافة للطلب +</button>
+                </div>
             </div>
         </div>
 
@@ -302,8 +370,25 @@
         let count = 0;
         let total = 0;
         let items = [];
+        let eventDetails = "";
 
-        function addToCart(itemName, price) {
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+            
+            document.getElementById(tabId).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        function addToCart(itemName, price, isCustomEvent = false) {
+            if (isCustomEvent) {
+                let personName = prompt("اكتب اسم صاحب المناسبة (أو العبارة المطلوبة على الكيكة):");
+                let eventType = prompt("نوع المناسبة (مثال: عيد ميلاد، ذكرى زواج، نجاح، خطوبة):");
+                if (personName && eventType) {
+                    itemName += " (الاسم: " + personName + " - المناسبة: " + eventType + ")";
+                }
+            }
+
             count++;
             total += price;
             items.push(itemName);
@@ -311,12 +396,12 @@
             document.getElementById('cartCount').innerText = count;
             document.getElementById('cartTotal').innerText = total;
 
-            alert('تمت إضافة ' + itemName + ' للطلب بنجاح! ☕');
+            alert('تمت إضافة ' + itemName + ' للطلب بنجاح! 🎉');
         }
 
         function sendOrder() {
             if (count === 0) {
-                alert('سلة الطلبات فارغة! اختر مشروبك أو الحلى المفضل أولاً ☕');
+                alert('سلة الطلبات فارغة! اختر مشروباتك أو حلوياتك المفضل أولاً ☕');
                 return;
             }
             let message = "مرحباً، أرغب بطلب الآتي من أفق كافيه:\n- " + items.join("\n- ") + "\n\nالمجموع الكلي: " + total + " ر.س";

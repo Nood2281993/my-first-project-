@@ -3,172 +3,203 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>أفـــOfoqـــق كافيه | Ofoq Cafe</title>
+    <title>أفـــOfoqـــق كافيه ☕</title>
     <style>
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #faf7f5;
-            color: #4a4238;
-            line-height: 1.6;
-            padding-bottom: 50px;
+            background-color: #fcfbf9;
+            color: #2c2a29;
+            padding-bottom: 100px;
         }
         header {
-            background-color: #ffffff;
-            padding: 15px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .logo {
-            font-size: 20px;
-            font-weight: bold;
-            color: #5c4e42;
-        }
-        .hero {
+            background: #2b1e1a;
+            color: #fdfbf7;
+            padding: 25px 20px;
             text-align: center;
-            padding: 60px 20px;
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?q=80&w=800') center/cover;
-            color: white;
-            border-radius: 0 0 25px 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
-        .hero h1 {
-            font-size: 30px;
-            margin-bottom: 15px;
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.1);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            margin-top: 10px;
         }
-        .hero p {
-            font-size: 15px;
-            max-width: 500px;
-            margin: 0 auto 25px auto;
-            opacity: 0.9;
-        }
-        .btn-main {
-            display: inline-block;
-            background-color: #c5b39e;
-            color: white;
-            padding: 12px 30px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-        .btn-main:hover {
-            background-color: #a8947f;
+        .dot {
+            width: 8px;
+            height: 8px;
+            background-color: #22c55e;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #22c55e;
         }
         .container {
-            max-width: 800px;
-            margin: auto;
-            padding: 20px;
-        }
-        .section-title {
-            text-align: center;
-            font-size: 22px;
-            color: #3d3429;
-            margin: 40px 0 20px 0;
-        }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 0 15px;
         }
         .card {
             background: #ffffff;
-            border-radius: 15px;
-            padding: 0 0 20px 0;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.04);
-            border: 1px solid #f0e6dd;
+            border-radius: 16px;
             overflow: hidden;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #f0eae1;
         }
-        .card-img {
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        .card img {
             width: 100%;
-            height: 160px;
+            height: 200px;
             object-fit: cover;
         }
         .card-content {
-            padding: 15px;
+            padding: 18px;
         }
-        .card h3 {
+        .card-title {
             font-size: 18px;
-            color: #5c4e42;
-            margin-bottom: 8px;
-        }
-        .card p {
-            font-size: 14px;
-            color: #8c7b6b;
+            font-weight: bold;
+            color: #2b1e1a;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         .price {
-            font-weight: bold;
-            color: #c5b39e;
-            margin-top: 10px;
+            color: #c88a58;
             font-size: 16px;
         }
-        footer {
-            text-align: center;
-            margin-top: 50px;
-            font-size: 13px;
-            color: #a09080;
+        .card-desc {
+            color: #786f6a;
+            font-size: 14px;
+            margin: 10px 0 15px;
+            line-height: 1.5;
+        }
+        .add-btn {
+            width: 100%;
+            padding: 10px;
+            background: #2b1e1a;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .add-btn:hover {
+            background: #c88a58;
+        }
+        /* Cart Bar */
+        .cart-bar {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 450px;
+            background: #2b1e1a;
+            color: #fff;
+            padding: 15px 20px;
+            border-radius: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+        .cart-btn {
+            background: #c88a58;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">☕ أفـــOfoqـــق كافيه</div>
-        <a href="#menu" class="btn-main" style="padding: 8px 18px; font-size: 13px;">القائمة</a>
+        <h1>أفـــOfoqـــق كافيه ☕</h1>
+        <div class="status-badge">
+            <span class="dot"></span>
+            <span>مفتوح الآن - يستقبل الطلبات</span>
+        </div>
     </header>
 
-    <section class="hero">
-        <h1>تجربة قهوة لا تُنسى ✨</h1>
-        <p>مرحباً بكم في أفـــOfoqـــق كافيه! نقدم لكم أجود أنواع القهوة المختصة المحمصة بحب في أجواء هادئة.</p>
-        <a href="#menu" class="btn-main">استكشف المنيو</a>
-    </section>
-
     <div class="container">
-
-        <h2 class="section-title" id="menu">☕ الأكثر مبيعاً</h2>
-        <div class="grid">
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1517256064527-09c73fc73e38?q=80&w=400" class="card-img" alt="سبانيش لاتيه">
-                <div class="card-content">
-                    <h3>سبانيش لاتيه</h3>
-                    <p>إسبريسو غني مع حليب مبخر ولمسة حلاوة موزونة.</p>
-                    <div class="price">22 ر.س</div>
+        
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?q=80&w=600" alt="سبانيش لاتيه">
+            <div class="card-content">
+                <div class="card-title">
+                    <span>سبانيش لاتيه</span>
+                    <span class="price">22 ر.س</span>
                 </div>
+                <p class="card-desc">إسبريسو غني مع حليب مبخر ولمسة حلاوة موزونة.</p>
+                <button class="add-btn" onclick="addToCart('سبانيش لاتيه', 22)">إضافة للطلب +</button>
             </div>
+        </div>
 
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?q=80&w=400" class="card-img" alt="V60 بارد">
-                <div class="card-content">
-                    <h3>V60 بارد</h3>
-                    <p>قهوة مقطرة بإتقان مع نكهات فاكهية منعشة.</p>
-                    <div class="price">24 ر.س</div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1517256064527-09c73fc73e38?q=80&w=600" alt="V60 بارد">
+            <div class="card-content">
+                <div class="card-title">
+                    <span>V60 بارد</span>
+                    <span class="price">24 ر.س</span>
                 </div>
-            </div>
-
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?q=80&w=400" class="card-img" alt="كوكيز الشوكولاتة">
-                <div class="card-content">
-                    <h3>كوكيز الشوكولاتة</h3>
-                    <p>كوكيز هشة وساخنة مع قطع الشوكولاتة الداكنة.</p>
-                    <div class="price">14 ر.س</div>
-                </div>
+                <p class="card-desc">قهوة مقطرة بإتقان مع نكهات فاكهية منعشة.</p>
+                <button class="add-btn" onclick="addToCart('V60 بارد', 24)">إضافة للطلب +</button>
             </div>
         </div>
 
     </div>
 
-    <footer>
-        <p>تم تصميم وبناء هذه الصفحة بواسطة <b>أفق DEV</b> 🚀</p>
-    </footer>
+    <!-- الشريط التفاعلي للطلب -->
+    <div class="cart-bar" id="cartBar">
+        <div>
+            <span>عناصر الطلب: <b id="cartCount">0</b></span>
+            <div style="font-size: 12px; color: #d1c7bd;">المجموع: <span id="cartTotal">0</span> ر.س</div>
+        </div>
+        <button class="cart-btn" onclick="sendOrder()">إتمام الطلب 💬</button>
+    </div>
+
+    <script>
+        let count = 0;
+        let total = 0;
+        let items = [];
+
+        function addToCart(itemName, price) {
+            count++;
+            total += price;
+            items.push(itemName);
+            
+            document.getElementById('cartCount').innerText = count;
+            document.getElementById('cartTotal').innerText = total;
+
+            alert('تمت إضافة ' + itemName + ' للطلب بنجاح! ☕');
+        }
+
+        function sendOrder() {
+            if (count === 0) {
+                alert('سلة الطلبات فارغة! اختر مشروبك المفضل أولاً ☕');
+                return;
+            }
+            let message = "مرحباً، أرغب بطلب المشروبات التالية من أفق كافيه:\n- " + items.join("\n- ") + "\nالمجموع الكلي: " + total + " ر.س";
+            let whatsappUrl = "https://wa.me/?text=" + encodeURIComponent(message);
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
 
 </body>
-</html> 
+</html>

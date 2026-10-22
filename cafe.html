@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أفـــOfoqـــق كافيه | Ofoq Cafe</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #faf7f5;
+            color: #4a4238;
+            line-height: 1.6;
+            padding-bottom: 50px;
+        }
+        header {
+            background-color: #ffffff;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+            color: #5c4e42;
+        }
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?q=80&w=800') center/cover;
+            color: white;
+            border-radius: 0 0 25px 25px;
+        }
+        .hero h1 {
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+        .hero p {
+            font-size: 15px;
+            max-width: 500px;
+            margin: 0 auto 25px auto;
+            opacity: 0.9;
+        }
+        .btn-main {
+            display: inline-block;
+            background-color: #c5b39e;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .btn-main:hover {
+            background-color: #a8947f;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 22px;
+            color: #3d3429;
+            margin: 40px 0 20px 0;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 15px;
+            padding: 0 0 20px 0;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.04);
+            border: 1px solid #f0e6dd;
+            overflow: hidden;
+        }
+        .card-img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+        }
+        .card-content {
+            padding: 15px;
+        }
+        .card h3 {
+            font-size: 18px;
+            color: #5c4e42;
+            margin-bottom: 8px;
+        }
+        .card p {
+            font-size: 14px;
+            color: #8c7b6b;
+        }
+        .price {
+            font-weight: bold;
+            color: #c5b39e;
+            margin-top: 10px;
+            font-size: 16px;
+        }
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 13px;
+            color: #a09080;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">☕ أفـــOfoqـــق كافيه</div>
+        <a href="#menu" class="btn-main" style="padding: 8px 18px; font-size: 13px;">القائمة</a>
+    </header>
+
+    <section class="hero">
+        <h1>تجربة قهوة لا تُنسى ✨</h1>
+        <p>مرحباً بكم في أفـــOfoqـــق كافيه! نقدم لكم أجود أنواع القهوة المختصة المحمصة بحب في أجواء هادئة.</p>
+        <a href="#menu" class="btn-main">استكشف المنيو</a>
+    </section>
+
+    <div class="container">
+
+        <h2 class="section-title" id="menu">☕ الأكثر مبيعاً</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1517256064527-09c73fc73e38?q=80&w=400" class="card-img" alt="سبانيش لاتيه">
+                <div class="card-content">
+                    <h3>سبانيش لاتيه</h3>
+                    <p>إسبريسو غني مع حليب مبخر ولمسة حلاوة موزونة.</p>
+                    <div class="price">22 ر.س</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?q=80&w=400" class="card-img" alt="V60 بارد">
+                <div class="card-content">
+                    <h3>V60 بارد</h3>
+                    <p>قهوة مقطرة بإتقان مع نكهات فاكهية منعشة.</p>
+                    <div class="price">24 ر.س</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?q=80&w=400" class="card-img" alt="كوكيز الشوكولاتة">
+                <div class="card-content">
+                    <h3>كوكيز الشوكولاتة</h3>
+                    <p>كوكيز هشة وساخنة مع قطع الشوكولاتة الداكنة.</p>
+                    <div class="price">14 ر.س</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>تم تصميم وبناء هذه الصفحة بواسطة <b>أفق DEV</b> 🚀</p>
+    </footer>
+
+</body>
+</html>

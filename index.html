@@ -77,7 +77,7 @@
             font-size: 12px;
             font-weight: bold;
         }
-        .cert-card, .project-card {
+        .cert-card, .project-card, .feature-card {
             background: #0f172a;
             border: 1px solid #334155;
             border-radius: 12px;
@@ -100,6 +100,17 @@
             color: #94a3b8;
             line-height: 1.5;
             margin-bottom: 12px;
+        }
+        .feature-list {
+            list-style: none;
+            font-size: 13px;
+            color: #cbd5e1;
+            line-height: 1.8;
+        }
+        .feature-list li::before {
+            content: "✓ ";
+            color: #38bdf8;
+            font-weight: bold;
         }
         .btn {
             display: block;
@@ -152,7 +163,7 @@
             <span class="skill-tag">CSS3</span>
             <span class="skill-tag">JavaScript</span>
             <span class="skill-tag">Responsive Design</span>
-            <span class="skill-tag">تصميم المنيو التفاعلي</span>
+            <span class="skill-tag">تطوير منيو إلكتروني تفاعلي</span>
         </div>
 
         <div class="section-title">الشهادات والاعتمادات 📜</div>
@@ -163,11 +174,20 @@
             <div class="cert-title">💼 شهادة التميز في الموارد البشرية (SHRM)</div>
         </div>
 
-        <div class="section-title">معرض المشاريع 💻</div>
+        <div class="section-title">نماذج من أعمالي 💻</div>
         <div class="project-card">
-            <div class="project-title">مشروع أفـــOfoqـــق كافيه ☕</div>
-            <p class="project-desc">موقع تفاعلي متكامل لكافيه عصري يضم منيو متعدد الأقسام (مشروبات، حلويات، وقسم خاص للاحتفالات) مع سلة طلبات وحساب تلقائي وإمكانية إرسال الطلب عبر الواتساب.</p>
-            <a href="cafe.html" class="btn btn-primary">معاينة المشروع الحية 🔗</a>
+            <div class="project-title">نموذج تصميم منيو إلكتروني لكافيه ☕</div>
+            <p class="project-desc">تصميم واجهة متكاملة لكافيه عصري تشمل تصنيفات المشروبات والحلويات وقسم الاحتفالات، مع سلة طلبات ذكية وإرسال مباشر للواتساب.</p>
+            <a href="cafe.html" class="btn btn-primary">معاينة منيو أفق كافيه ☕🔗</a>
+        </div>
+
+        <div class="section-title">لماذا تختار خدماتي؟ ✨</div>
+        <div class="feature-card">
+            <ul class="feature-list">
+                <li>تصاميم حديثة وسريعة متوافقة مع الجوال.</li>
+                <li>ربط مباشر مع الواتساب لتسهيل طلبات العملاء.</li>
+                <li>إمكانية تخصيص المنيو والأقسام حسب هويتك التجارية.</li>
+            </ul>
         </div>
 
         <div class="section-title">تواصل معي للأعمال ✉️</div>

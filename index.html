@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>صفحة نود الشخصية</title>
+    <title>صفحة نود الشخصية - مطورة ومصممة مواقع</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f5f0eb;
             color: #4a4238;
             text-align: center;
-            padding: 50px 20px;
+            padding: 40px 20px;
             margin: 0;
         }
         .container {
             background-color: #ffffff;
-            padding: 30px;
+            padding: 35px 25px;
             border-radius: 20px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-            max-width: 500px;
+            max-width: 550px;
             margin: auto;
         }
         .profile-img {
@@ -31,26 +31,74 @@
         }
         h1 {
             color: #3d3429;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
+            font-size: 26px;
         }
-        p {
+        .subtitle {
+            font-size: 16px;
+            color: #8c7b6b;
+            margin-bottom: 25px;
+            font-weight: bold;
+        }
+        .section-title {
             font-size: 18px;
-            color: #6b5e52;
-            line-height: 1.6;
+            color: #5c4e42;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #f0e6dd;
+            padding-bottom: 8px;
+        }
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+        .skill-tag {
+            background-color: #f0e6dd;
+            color: #5c4e42;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        .services-list {
+            text-align: right;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .services-list li {
+            background: #faf7f5;
+            padding: 12px 15px;
+            border-radius: 12px;
+            margin-bottom: 10px;
+            border-right: 4px solid #c5b39e;
+            font-size: 15px;
+            color: #5c4e42;
+        }
+        .btn-group {
+            margin-top: 30px;
+            display: flex;
+            gap: 12px;
+            justify-content: center;
         }
         .btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 12px 25px;
+            padding: 12px 20px;
             background-color: #c5b39e;
             color: white;
             text-decoration: none;
             border-radius: 25px;
             font-weight: bold;
+            font-size: 14px;
             transition: 0.3s;
+            flex: 1;
+        }
+        .btn-secondary {
+            background-color: #8c7b6b;
         }
         .btn:hover {
-            background-color: #b09e88;
+            opacity: 0.9;
         }
     </style>
 </head>
@@ -58,9 +106,29 @@
 
     <div class="container">
         <img src="logo.png .PNG" alt="أفق DEV Logo" class="profile-img">
-        <h1>👋 مرحباً بكم في موقع نود!</h1>
-        <p>أنا نود، مطورة ومصممة مواقع إلكترونية.</p>
-        <a href="https://github.com/Nood2281993" class="btn" target="_blank">زيارة حسابي على GitHub</a>
+        <h1>نود | أفق DEV</h1>
+        <div class="subtitle">مطورة واجهات ومصممة مواقع إلكترونية</div>
+
+        <div class="section-title">💡 المهارات التقنية</div>
+        <div class="skills-container">
+            <span class="skill-tag">HTML5 & CSS3</span>
+            <span class="skill-tag">تصميم تجاوبي (Mobile First)</span>
+            <span class="skill-tag">JavaScript Basics</span>
+            <span class="skill-tag">Git & GitHub</span>
+            <span class="skill-tag">UI/UX Design</span>
+        </div>
+
+        <div class="section-title">🛠️ الخدمات التي أقدمها</div>
+        <ul class="services-list">
+            <li>✨ تصميم وبناء صفحات التعريف للشركات والأفراد.</li>
+            <li>📱 تحويل التصاميم إلى مواقع متوافقة مع الجوال والأيباد.</li>
+            <li>🎨 تحسين وتعديل واجهات المواقع القائمة.</li>
+        </ul>
+
+        <div class="btn-group">
+            <a href="https://github.com/Nood2281993" class="btn" target="_blank">معرض GitHub</a>
+            <a href="mailto:your-email@example.com" class="btn btn-secondary">اطلب خدمتك</a>
+        </div>
     </div>
 
 </body>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مطعم الفخامة | Gourmet Restaurant</title>
+    <title>مطعم أفق | OFOQ Restaurant</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
     <style>
@@ -31,29 +31,51 @@
         }
 
         header {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1000&q=80') center/cover;
+            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1000&q=80') center/cover;
             text-align: center;
-            padding: 60px 20px 40px;
+            padding: 50px 20px 35px;
             border-bottom: 2px solid var(--primary);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* تصميم الشعار بنفس اسم ونمط أفق */
+        .brand-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+
+        .brand-logo-img {
+            width: 55px;
+            height: 55px;
+            object-fit: contain;
+            border-radius: 50%;
+            border: 2px solid var(--primary);
         }
 
         .logo {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             font-weight: 800;
             color: var(--primary);
-            margin-bottom: 10px;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 10px rgba(212, 175, 55, 0.3);
         }
 
         .subtitle {
             color: var(--text-muted);
-            font-size: 1.1rem;
+            font-size: 1.05rem;
+            font-weight: 500;
         }
 
         .categories {
             display: flex;
             justify-content: center;
             gap: 10px;
-            padding: 20px 10px;
+            padding: 18px 10px;
             overflow-x: auto;
             position: sticky;
             top: 0;
@@ -66,22 +88,24 @@
             background-color: var(--card-bg);
             color: var(--text-light);
             border: 1px solid #333;
-            padding: 10px 20px;
+            padding: 10px 22px;
             border-radius: 25px;
             cursor: pointer;
             white-space: nowrap;
             transition: all 0.3s;
+            font-size: 0.95rem;
         }
 
         .cat-btn.active, .cat-btn:hover {
             background-color: var(--primary);
             color: #000;
             font-weight: bold;
+            border-color: var(--primary);
         }
 
         .container {
             max-width: 1000px;
-            margin: 20px auto;
+            margin: 25px auto;
             padding: 0 15px;
         }
 
@@ -118,6 +142,7 @@
             font-size: 1.2rem;
             color: var(--primary);
             margin-bottom: 8px;
+            font-weight: 700;
         }
 
         .item-desc {
@@ -125,6 +150,7 @@
             font-size: 0.9rem;
             margin-bottom: 15px;
             flex-grow: 1;
+            line-height: 1.5;
         }
 
         .item-footer {
@@ -134,7 +160,7 @@
         }
 
         .item-price {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             font-weight: bold;
         }
 
@@ -142,7 +168,7 @@
             background-color: var(--primary);
             color: #000;
             border: none;
-            padding: 8px 15px;
+            padding: 8px 16px;
             border-radius: 8px;
             cursor: pointer;
             font-weight: bold;
@@ -184,8 +210,12 @@
 <body>
 
     <header>
-        <div class="logo">مطعم الفخامة</div>
-        <div class="subtitle">تجربة طهي استثنائية وطعم لا يُنسى</div>
+        <div class="brand-container">
+            <!-- إذا كان لديكِ ملف الشعار logo.png في المستودع سيظهر مباشرة -->
+            <img src="logo.png .PNG" class="brand-logo-img" alt="أفق" onerror="this.style.display='none'">
+            <div class="logo">أفق</div>
+        </div>
+        <div class="subtitle">مطعم أفق | تجربة طهي استثنائية ونكهات فاخرة</div>
     </header>
 
     <div class="categories">
@@ -202,11 +232,11 @@
             <div class="menu-item" data-cat="mains">
                 <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=500&q=80" class="item-img" alt="ستيك لحم">
                 <div class="item-details">
-                    <div class="item-title">ستيك لحم بقر فاخر</div>
-                    <div class="item-desc">شريحة لحم بقر مشوية مع صوص الفطر والبطاطس المهروسة</div>
+                    <div class="item-title">ستيك لحم أفق الفاخر</div>
+                    <div class="item-desc">شريحة لحم بقر مشوية على الفحم مع صوص الفطر والبطاطس المهروسة</div>
                     <div class="item-footer">
                         <div class="item-price">120 ر.س</div>
-                        <button class="add-btn" onclick="addToCart('ستيك لحم بقر فاخر', 120)">إضافة للطلب</button>
+                        <button class="add-btn" onclick="addToCart('ستيك لحم أفق الفاخر', 120)">إضافة للطلب</button>
                     </div>
                 </div>
             </div>
@@ -214,11 +244,11 @@
             <div class="menu-item" data-cat="starters">
                 <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=500&q=80" class="item-img" alt="سلطة قيصر">
                 <div class="item-details">
-                    <div class="item-title">سلطة قيصر بالدجاج</div>
+                    <div class="item-title">سلطة قيصر أفق</div>
                     <div class="item-desc">خس طازج، قطع دجاج مشوي، جبن بارميزان وصوص قيصر الخاص</div>
                     <div class="item-footer">
                         <div class="item-price">45 ر.س</div>
-                        <button class="add-btn" onclick="addToCart('سلطة قيصر بالدجاج', 45)">إضافة للطلب</button>
+                        <button class="add-btn" onclick="addToCart('سلطة قيصر أفق', 45)">إضافة للطلب</button>
                     </div>
                 </div>
             </div>
@@ -226,11 +256,11 @@
             <div class="menu-item" data-cat="drinks">
                 <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=500&q=80" class="item-img" alt="موهيتو">
                 <div class="item-details">
-                    <div class="item-title">موهيتو منعش</div>
-                    <div class="item-desc">نعناع طازج، ليمون، وثلج مجروش مع اختيارك من النكهات</div>
+                    <div class="item-title">موهيتو أفق المنعش</div>
+                    <div class="item-desc">نعناع طازج، ليمون، وثلج مجروش مع نكهة الموتشيتو المتميزة</div>
                     <div class="item-footer">
                         <div class="item-price">25 ر.س</div>
-                        <button class="add-btn" onclick="addToCart('موهيتو منعش', 25)">إضافة للطلب</button>
+                        <button class="add-btn" onclick="addToCart('موهيتو أفق المنعش', 25)">إضافة للطلب</button>
                     </div>
                 </div>
             </div>
@@ -278,8 +308,8 @@
 
         function sendToWhatsapp() {
             if(cart.length === 0) return;
-            let phone = "966500000000"; // رقم المطعم
-            let message = "مرحباً، أود تقديم الطلب التالي من المنيو الإلكتروني:\n\n";
+            let phone = "966500000000";
+            let message = "مرحباً مطعم أفق، أود تقديم الطلب التالي من المنيو الإلكتروني:\n\n";
             cart.forEach((item, index) => {
                 message += `${index + 1}. ${item.name} - ${item.price} ر.س\n`;
             });

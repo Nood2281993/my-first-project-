@@ -18,11 +18,24 @@
             --btn-hover: #c4b0a2;        /* درجة أغمق عند التمرير */
         }
 
+        /* الألوان عند تفعيل الوضع الداكن */
+        [data-theme="dark"] {
+            --bg-beige: #12161f;         /* خلفية داكنة فخمة */
+            --card-beige: #1e2430;       /* كروت كحلي داكن */
+            --text-main: #f3f4f6;        /* نص فاتح واضح */
+            --text-muted: #9ca3af;       /* نص فرعي رمادي ناعم */
+            --border-beige: #2d3748;     /* حدود داكنة متناسقة */
+            --tag-bg: #2a3241;           /* خلفية الوسوم داكنة */
+            --btn-beige: #374151;        /* أزرار داكنة أنيقة */
+            --btn-hover: #4b5563;        /* تأثير التمرير للوضع الداكن */
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Tajawal', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
         }
 
         body {
@@ -34,11 +47,37 @@
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
+            position: relative;
+        }
+
+        /* زر التحويل في أعلى يسار الشاشة */
+        .theme-toggle-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: var(--card-beige);
+            color: var(--text-main);
+            border: 1px solid var(--border-beige);
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            z-index: 100;
+        }
+
+        .theme-toggle-btn:hover {
+            background-color: var(--btn-beige);
         }
 
         .container {
             max-width: 700px;
             width: 100%;
+            margin-top: 40px; /* مساحة لعدم التداخل مع الزر علوياً */
         }
 
         /* Header Section */
@@ -49,7 +88,7 @@
             border-radius: 20px;
             border: 1px solid var(--border-beige);
             margin-bottom: 25px;
-            box-shadow: 0 4px 15px rgba(140, 122, 107, 0.06);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
         }
 
         .logo-img {
@@ -225,6 +264,12 @@
 </head>
 <body>
 
+    <!-- زر التحويل بين الوضع الداكن والفاتح -->
+    <button class="theme-toggle-btn" id="themeToggleBtn">
+        <span id="themeIcon">🌙</span>
+        <span id="themeText">الوضع الداكن</span>
+    </button>
+
     <div class="container">
         <!-- Header / Personal Profile -->
         <header>
@@ -302,4 +347,25 @@
         </footer>
     </div>
 
+    <!-- JavaScript للتحكم بالوضع الداكن والفاتح -->
+    <script>
+        const toggleBtn = document.getElementById('themeToggleBtn');
+        const themeIcon = document.getElementById('themeIcon');
+        const themeText = document.getElementById('themeText');
+
+        toggleBtn.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            
+            if (currentTheme === 'dark') {
+                document.documentElement.removeAttribute('data-theme');
+                themeIcon.textContent = '🌙';
+                themeText.textContent = 'الوضع الداكن';
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                themeIcon.textContent = '☀️';
+                themeText.textContent = 'الوضع الفاتح';
+            }
+        });
+    </script>
 </body>
+</html>

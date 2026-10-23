@@ -82,7 +82,7 @@
         .container {
             max-width: 700px;
             width: 100%;
-            margin-top: 50px; /* مساحة لعدم التداخل مع الأزرار العلوية */
+            margin-top: 50px;
         }
 
         /* Header Section */
@@ -273,20 +273,26 @@
             background-color: var(--btn-hover);
         }
 
-        .copy-btn {
+        /* زر الأيقونة الفقط للنسخ */
+        .copy-icon-btn {
             background-color: var(--tag-bg);
             color: var(--text-main);
             border: 1px solid var(--border-beige);
-            padding: 0 16px;
+            width: 48px;
+            height: 48px;
             border-radius: 12px;
             cursor: pointer;
-            font-weight: 700;
-            font-size: 0.9rem;
-            transition: background-color 0.3s;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
         }
 
-        .copy-btn:hover {
+        .copy-icon-btn:hover {
             background-color: var(--btn-beige);
+            transform: scale(1.05);
         }
 
         /* Toast notification */
@@ -431,7 +437,7 @@
         <div class="card-box">
             <div class="contact-row">
                 <a href="https://wa.me/966539365000" target="_blank" class="contact-btn" data-ar="تواصل عبر الواتساب 💬" data-en="Chat on WhatsApp 💬">تواصل عبر الواتساب 💬</a>
-                <button class="copy-btn" onclick="copyText('966539365000')" data-ar="نسخ 📋" data-en="Copy 📋">نسخ 📋</button>
+                <button class="copy-icon-btn" onclick="copyText('966539365000')" title="نسخ الرقم">📋</button>
             </div>
             
             <div class="contact-row">
@@ -440,7 +446,7 @@
 
             <div class="contact-row">
                 <a href="mailto:Nood1000N@gmail.com" class="contact-btn" data-ar="إرسال بريد إلكتروني ✉️" data-en="Send Email ✉️">إرسال بريد إلكتروني ✉️</a>
-                <button class="copy-btn" onclick="copyText('Nood1000N@gmail.com')" data-ar="نسخ 📋" data-en="Copy 📋">نسخ 📋</button>
+                <button class="copy-icon-btn" onclick="copyText('Nood1000N@gmail.com')" title="نسخ البريد">📋</button>
             </div>
         </div>
 

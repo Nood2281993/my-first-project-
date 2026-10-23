@@ -254,6 +254,7 @@
             display: flex;
             gap: 10px;
             margin-bottom: 10px;
+            align-items: center;
         }
 
         .contact-btn {
@@ -273,16 +274,16 @@
             background-color: var(--btn-hover);
         }
 
-        /* زر الأيقونة الفقط للنسخ */
+        /* زر الأيقونة المصغر جداً للنسخ */
         .copy-icon-btn {
             background-color: var(--tag-bg);
             color: var(--text-main);
             border: 1px solid var(--border-beige);
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
             cursor: pointer;
-            font-size: 1.2rem;
+            font-size: 0.95rem;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -292,7 +293,7 @@
 
         .copy-icon-btn:hover {
             background-color: var(--btn-beige);
-            transform: scale(1.05);
+            transform: scale(1.08);
         }
 
         /* Toast notification */
@@ -437,110 +438,4 @@
         <div class="card-box">
             <div class="contact-row">
                 <a href="https://wa.me/966539365000" target="_blank" class="contact-btn" data-ar="تواصل عبر الواتساب 💬" data-en="Chat on WhatsApp 💬">تواصل عبر الواتساب 💬</a>
-                <button class="copy-icon-btn" onclick="copyText('966539365000')" title="نسخ الرقم">📋</button>
-            </div>
-            
-            <div class="contact-row">
-                <a href="https://www.linkedin.com/in/alanoud-alghamdi-9856b11b3" target="_blank" class="contact-btn" data-ar="حسابي في LinkedIn 💼" data-en="LinkedIn Profile 💼">حسابي في LinkedIn 💼</a>
-            </div>
-
-            <div class="contact-row">
-                <a href="mailto:Nood1000N@gmail.com" class="contact-btn" data-ar="إرسال بريد إلكتروني ✉️" data-en="Send Email ✉️">إرسال بريد إلكتروني ✉️</a>
-                <button class="copy-icon-btn" onclick="copyText('Nood1000N@gmail.com')" title="نسخ البريد">📋</button>
-            </div>
-        </div>
-
-        <!-- Footer -->
-        <footer>
-            <p data-ar="© 2026 جميع الحقوق محفوظة - العنـود الغامــدي | أفــDEVــق" data-en="© 2026 All Rights Reserved - Alanoud Al-Ghamdi | Ofoq DEV">© 2026 جميع الحقوق محفوظة - العنـود الغامــدي | أفــDEVــق</p>
-        </footer>
-    </div>
-
-    <!-- زر العودة للأعلى -->
-    <button class="back-to-top" id="backToTopBtn" title="العودة للأعلى">↑</button>
-
-    <!-- إشعار النسخ (Toast) -->
-    <div class="toast" id="toastNotification">تم النسخ بنجاح! 📋</div>
-
-    <!-- JavaScript للوظائف البرمجية والتفاعلية -->
-    <script>
-        // 1. التحكم بالوضع الداكن والفاتح
-        const themeToggleBtn = document.getElementById('themeToggleBtn');
-        const themeIcon = document.getElementById('themeIcon');
-        const themeText = document.getElementById('themeText');
-
-        themeToggleBtn.addEventListener('click', () => {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            const isEng = document.documentElement.getAttribute('lang') === 'en';
-            
-            if (currentTheme === 'dark') {
-                document.documentElement.removeAttribute('data-theme');
-                themeIcon.textContent = '🌙';
-                themeText.textContent = isEng ? 'Dark Mode' : 'الوضع الداكن';
-            } else {
-                document.documentElement.setAttribute('data-theme', 'dark');
-                themeIcon.textContent = '☀️';
-                themeText.textContent = isEng ? 'Light Mode' : 'الوضع الفاتح';
-            }
-        });
-
-        // 2. التحكم باللغة (عربي / English)
-        const langToggleBtn = document.getElementById('langToggleBtn');
-        const langText = document.getElementById('langText');
-
-        langToggleBtn.addEventListener('click', () => {
-            const isArabic = document.documentElement.getAttribute('lang') === 'ar';
-            const newLang = isArabic ? 'en' : 'ar';
-            const newDir = isArabic ? 'ltr' : 'rtl';
-
-            document.documentElement.setAttribute('lang', newLang);
-            document.documentElement.setAttribute('dir', newDir);
-
-            langText.textContent = isArabic ? 'العربية' : 'English';
-
-            // التبديل بين النصوص المترجمة
-            document.querySelectorAll('[data-ar]').forEach(el => {
-                el.textContent = el.getAttribute(`data-${newLang}`);
-            });
-
-            // تحديث نص زر الوضع الداكن وفق اللغة الحالية
-            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-            themeText.textContent = newLang === 'en' 
-                ? (isDark ? 'Light Mode' : 'Dark Mode') 
-                : (isDark ? 'الوضع الفاتح' : 'الوضع الداكن');
-        });
-
-        // 3. نسخ النصوص وإظهار إشعار Toast
-        function copyText(text) {
-            navigator.clipboard.writeText(text).then(() => {
-                const toast = document.getElementById('toastNotification');
-                const isEng = document.documentElement.getAttribute('lang') === 'en';
-                toast.textContent = isEng ? 'Copied successfully! 📋' : 'تم النسخ بنجاح! 📋';
-                
-                toast.classList.add('show');
-                setTimeout(() => {
-                    toast.classList.remove('show');
-                }, 2500);
-            });
-        }
-
-        // 4. زر العودة للأعلى (Back to Top)
-        const backToTopBtn = document.getElementById('backToTopBtn');
-
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                backToTopBtn.classList.add('show');
-            } else {
-                backToTopBtn.classList.remove('show');
-            }
-        });
-
-        backToTopBtn.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-    </script>
-</body>
-</html>
+                <button class="copy-icon-btn" onclick="copyText('9

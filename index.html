@@ -50,34 +50,39 @@
             position: relative;
         }
 
-        /* زر التحويل في أعلى يسار الشاشة */
-        .theme-toggle-btn {
+        /* حاوية الأزرار العلوية */
+        .top-controls {
             position: absolute;
             top: 20px;
             left: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 100;
+        }
+
+        .top-btn {
             background-color: var(--card-beige);
             color: var(--text-main);
             border: 1px solid var(--border-beige);
-            padding: 8px 16px;
+            padding: 8px 14px;
             border-radius: 20px;
             cursor: pointer;
             font-weight: 700;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             display: flex;
             align-items: center;
             gap: 6px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-            z-index: 100;
         }
 
-        .theme-toggle-btn:hover {
+        .top-btn:hover {
             background-color: var(--btn-beige);
         }
 
         .container {
             max-width: 700px;
             width: 100%;
-            margin-top: 40px; /* مساحة لعدم التداخل مع الزر علوياً */
+            margin-top: 50px; /* مساحة لعدم التداخل مع الأزرار العلوية */
         }
 
         /* Header Section */
@@ -140,6 +145,14 @@
             border-right: 4px solid var(--btn-beige);
             padding-right: 10px;
             font-weight: 800;
+        }
+
+        html[dir="ltr"] .section-title {
+            text-align: left;
+            border-right: none;
+            border-left: 4px solid var(--btn-beige);
+            padding-right: 0;
+            padding-left: 10px;
         }
 
         .card-box {
@@ -236,8 +249,15 @@
             line-height: 1.5;
         }
 
-        /* Contact Section */
+        /* Contact Section Rows */
+        .contact-row {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
         .contact-btn {
+            flex: 1;
             display: block;
             background-color: var(--btn-beige);
             color: var(--text-main);
@@ -246,12 +266,81 @@
             border-radius: 12px;
             text-align: center;
             font-weight: 700;
-            margin-bottom: 10px;
             transition: background-color 0.3s;
         }
 
         .contact-btn:hover {
             background-color: var(--btn-hover);
+        }
+
+        .copy-btn {
+            background-color: var(--tag-bg);
+            color: var(--text-main);
+            border: 1px solid var(--border-beige);
+            padding: 0 16px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: background-color 0.3s;
+        }
+
+        .copy-btn:hover {
+            background-color: var(--btn-beige);
+        }
+
+        /* Toast notification */
+        .toast {
+            position: fixed;
+            bottom: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--text-main);
+            color: var(--bg-beige);
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: bottom 0.4s ease;
+            z-index: 1000;
+        }
+
+        .toast.show {
+            bottom: 30px;
+        }
+
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            left: 20px;
+            width: 45px;
+            height: 45px;
+            background-color: var(--btn-beige);
+            color: var(--text-main);
+            border: 1px solid var(--border-beige);
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 99;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--btn-hover);
+            transform: translateY(-3px);
         }
 
         footer {
@@ -264,107 +353,187 @@
 </head>
 <body>
 
-    <!-- زر التحويل بين الوضع الداكن والفاتح -->
-    <button class="theme-toggle-btn" id="themeToggleBtn">
-        <span id="themeIcon">🌙</span>
-        <span id="themeText">الوضع الداكن</span>
-    </button>
+    <!-- أزرار التحكم العلوية (الوضع الداكن واللغة) -->
+    <div class="top-controls">
+        <button class="top-btn" id="langToggleBtn">
+            🌐 <span id="langText">English</span>
+        </button>
+        <button class="top-btn" id="themeToggleBtn">
+            <span id="themeIcon">🌙</span>
+            <span id="themeText">الوضع الداكن</span>
+        </button>
+    </div>
 
     <div class="container">
         <!-- Header / Personal Profile -->
         <header>
-            <!-- مسار الصورة المطابق تماماً لاسم الملف في GitHub -->
             <img src="logo.png.PNG" alt="شعار أفــDEVــق" class="logo-img">
             
-            <h1 class="user-name">العنـود الغامــدي</h1>
+            <h1 class="user-name" data-ar="العنـود الغامــدي" data-en="Alanoud Al-Ghamdi">العنـود الغامــدي</h1>
             
             <div class="platform-box">
                 <span class="platform-title">أفــDEVــق</span>
             </div>
             
-            <div class="job-title">مطورة واجهات ومواقع إلكترونية 🚀</div>
+            <div class="job-title" data-ar="مطورة واجهات ومواقع إلكترونية 🚀" data-en="Frontend Developer & Web Specialist 🚀">مطورة واجهات ومواقع إلكترونية 🚀</div>
         </header>
 
         <!-- Technical Skills Section -->
-        <h2 class="section-title">المهارات التقنية</h2>
+        <h2 class="section-title" data-ar="المهارات التقنية" data-en="Technical Skills">المهارات التقنية</h2>
         <div class="card-box">
             <div class="skills-container">
                 <span class="skill-chip">HTML5</span>
                 <span class="skill-chip">CSS3</span>
                 <span class="skill-chip">JavaScript</span>
                 <span class="skill-chip">Responsive Design</span>
-                <span class="skill-chip rtl-chip">تطوير منيو إلكتروني تفاعلي</span>
+                <span class="skill-chip rtl-chip" data-ar="تطوير منيو إلكتروني تفاعلي" data-en="Interactive Menu Development">تطوير منيو إلكتروني تفاعلي</span>
             </div>
         </div>
 
         <!-- Certificates Section -->
-        <h2 class="section-title">الشهادات</h2>
+        <h2 class="section-title" data-ar="الشهادات" data-en="Certifications">الشهادات</h2>
         <div class="card-box">
-            <div class="cert-item">
+            <div class="cert-item" data-ar="🎓 دبلوم إدارة الأعمال" data-en="🎓 Diploma in Business Administration">
                 🎓 دبلوم إدارة الأعمال
             </div>
-            <div class="cert-item">
+            <div class="cert-item" data-ar="💼 شهادة التميز في الموارد البشرية (SHRM)" data-en="💼 HR Excellence Certification (SHRM)">
                 💼 شهادة التميز في الموارد البشرية (SHRM)
             </div>
         </div>
 
-        <!-- Projects Section (Direct Links) -->
-        <h2 class="section-title">نماذج من أعمالي</h2>
+        <!-- Projects Section -->
+        <h2 class="section-title" data-ar="نماذج من أعمالي" data-en="Featured Projects">نماذج من أعمالي</h2>
         <div>
-            <a href="cafe.html" class="project-btn">معاينة منيو كافيه أفق ☕</a>
-            <a href="restaurant.html" class="project-btn">معاينة قائمة مطعم أفق 🍽️</a>
-            <a href="perfume.html" class="project-btn">معاينة متجر عطور أفق 🧴</a>
+            <a href="cafe.html" class="project-btn" data-ar="معاينة منيو كافيه أفق ☕" data-en="Preview Ofoq Cafe Menu ☕">معاينة منيو كافيه أفق ☕</a>
+            <a href="restaurant.html" class="project-btn" data-ar="معاينة قائمة مطعم أفق 🍽️" data-en="Preview Ofoq Restaurant Menu 🍽️">معاينة قائمة مطعم أفق 🍽️</a>
+            <a href="perfume.html" class="project-btn" data-ar="معاينة متجر عطور أفق 🧴" data-en="Preview Ofoq Perfume Store 🧴">معاينة متجر عطور أفق 🧴</a>
         </div>
 
         <!-- Why Choose Me Section -->
-        <h2 class="section-title">لماذا تختار خدماتي؟ ✨</h2>
+        <h2 class="section-title" data-ar="لماذا تختار خدماتي؟ ✨" data-en="Why Choose My Services? ✨">لماذا تختار خدماتي؟ ✨</h2>
         <div class="card-box">
             <div class="feature-item">
-                <h4>✓ دقة التطوير والبرمجة لبناء مشاريع ناجحة:</h4>
-                <p>تقديم حلول رقمية مخصصة تجمع بين كفاءة التخطيط والدقة البرمجية العالية.</p>
+                <h4 data-ar="✓ دقة التطوير والبرمجة لبناء مشاريع ناجحة:" data-en="✓ Precise development for successful projects:">✓ دقة التطوير والبرمجة لبناء مشاريع ناجحة:</h4>
+                <p data-ar="تقديم حلول رقمية مخصصة تجمع بين كفاءة التخطيط والدقة البرمجية العالية." data-en="Providing custom digital solutions combining efficient planning and precise code.">تقديم حلول رقمية مخصصة تجمع بين كفاءة التخطيط والدقة البرمجية العالية.</p>
             </div>
             <div class="feature-item">
-                <h4>✓ تصاميم عصرية واحترافية تعكس هوية علامتك التجارية:</h4>
-                <p>بناء واجهات رقمية مخصصة، أنيقة، ومصممة بعناية لتقديم تجربة مستخدم سلسة وجذابة.</p>
+                <h4 data-ar="✓ تصاميم عصرية واحترافية تعكس هوية علامتك التجارية:" data-en="✓ Modern & professional designs representing your brand:">✓ تصاميم عصرية واحترافية تعكس هوية علامتك التجارية:</h4>
+                <p data-ar="بناء واجهات رقمية مخصصة، أنيقة، ومصممة بعناية لتقديم تجربة مستخدم سلسة وجذابة." data-en="Building sleek, tailored interfaces designed for seamless user experience.">بناء واجهات رقمية مخصصة، أنيقة، ومصممة بعناية لتقديم تجربة مستخدم سلسة وجذابة.</p>
             </div>
             <div class="feature-item">
-                <h4>✓ التزام بأعلى معايير الجودة والدقة في العمل:</h4>
-                <p>الحرص على تنفيذ كافة التفاصيل البرمجية والإدارية وفق أعلى المعايير المهنية لضمان تحويل الفكرة إلى واقع متميز.</p>
+                <h4 data-ar="✓ التزام بأعلى معايير الجودة والدقة في العمل:" data-en="✓ Commitment to high quality & precision standards:">✓ التزام بأعلى معايير الجودة والدقة في العمل:</h4>
+                <p data-ar="الحرص على تنفيذ كافة التفاصيل البرمجية والإدارية وفق أعلى المعايير المهنية لضمان تحويل الفكرة إلى واقع متميز." data-en="Executing all details under professional standards to transform ideas into reality.">الحرص على تنفيذ كافة التفاصيل البرمجية والإدارية وفق أعلى المعايير المهنية لضمان تحويل الفكرة إلى واقع متميز.</p>
             </div>
         </div>
 
         <!-- Contact Section -->
-        <h2 class="section-title">تواصل معي للأعمال ✉️</h2>
+        <h2 class="section-title" data-ar="تواصل معي للأعمال ✉️" data-en="Contact Me for Business ✉️">تواصل معي للأعمال ✉️</h2>
         <div class="card-box">
-            <a href="https://wa.me/966539365000" target="_blank" class="contact-btn">تواصل عبر الواتساب 💬</a>
-            <a href="https://www.linkedin.com/in/alanoud-alghamdi-9856b11b3" target="_blank" class="contact-btn">حسابي في LinkedIn 💼</a>
-            <a href="mailto:Nood1000N@gmail.com" class="contact-btn">إرسال بريد إلكتروني ✉️</a>
+            <div class="contact-row">
+                <a href="https://wa.me/966539365000" target="_blank" class="contact-btn" data-ar="تواصل عبر الواتساب 💬" data-en="Chat on WhatsApp 💬">تواصل عبر الواتساب 💬</a>
+                <button class="copy-btn" onclick="copyText('966539365000')" data-ar="نسخ 📋" data-en="Copy 📋">نسخ 📋</button>
+            </div>
+            
+            <div class="contact-row">
+                <a href="https://www.linkedin.com/in/alanoud-alghamdi-9856b11b3" target="_blank" class="contact-btn" data-ar="حسابي في LinkedIn 💼" data-en="LinkedIn Profile 💼">حسابي في LinkedIn 💼</a>
+            </div>
+
+            <div class="contact-row">
+                <a href="mailto:Nood1000N@gmail.com" class="contact-btn" data-ar="إرسال بريد إلكتروني ✉️" data-en="Send Email ✉️">إرسال بريد إلكتروني ✉️</a>
+                <button class="copy-btn" onclick="copyText('Nood1000N@gmail.com')" data-ar="نسخ 📋" data-en="Copy 📋">نسخ 📋</button>
+            </div>
         </div>
 
         <!-- Footer -->
         <footer>
-            <p>© 2026 جميع الحقوق محفوظة - العنـود الغامــدي | أفــDEVــق</p>
+            <p data-ar="© 2026 جميع الحقوق محفوظة - العنـود الغامــدي | أفــDEVــق" data-en="© 2026 All Rights Reserved - Alanoud Al-Ghamdi | Ofoq DEV">© 2026 جميع الحقوق محفوظة - العنـود الغامــدي | أفــDEVــق</p>
         </footer>
     </div>
 
-    <!-- JavaScript للتحكم بالوضع الداكن والفاتح -->
+    <!-- زر العودة للأعلى -->
+    <button class="back-to-top" id="backToTopBtn" title="العودة للأعلى">↑</button>
+
+    <!-- إشعار النسخ (Toast) -->
+    <div class="toast" id="toastNotification">تم النسخ بنجاح! 📋</div>
+
+    <!-- JavaScript للوظائف البرمجية والتفاعلية -->
     <script>
-        const toggleBtn = document.getElementById('themeToggleBtn');
+        // 1. التحكم بالوضع الداكن والفاتح
+        const themeToggleBtn = document.getElementById('themeToggleBtn');
         const themeIcon = document.getElementById('themeIcon');
         const themeText = document.getElementById('themeText');
 
-        toggleBtn.addEventListener('click', () => {
+        themeToggleBtn.addEventListener('click', () => {
             const currentTheme = document.documentElement.getAttribute('data-theme');
+            const isEng = document.documentElement.getAttribute('lang') === 'en';
             
             if (currentTheme === 'dark') {
                 document.documentElement.removeAttribute('data-theme');
                 themeIcon.textContent = '🌙';
-                themeText.textContent = 'الوضع الداكن';
+                themeText.textContent = isEng ? 'Dark Mode' : 'الوضع الداكن';
             } else {
                 document.documentElement.setAttribute('data-theme', 'dark');
                 themeIcon.textContent = '☀️';
-                themeText.textContent = 'الوضع الفاتح';
+                themeText.textContent = isEng ? 'Light Mode' : 'الوضع الفاتح';
             }
+        });
+
+        // 2. التحكم باللغة (عربي / English)
+        const langToggleBtn = document.getElementById('langToggleBtn');
+        const langText = document.getElementById('langText');
+
+        langToggleBtn.addEventListener('click', () => {
+            const isArabic = document.documentElement.getAttribute('lang') === 'ar';
+            const newLang = isArabic ? 'en' : 'ar';
+            const newDir = isArabic ? 'ltr' : 'rtl';
+
+            document.documentElement.setAttribute('lang', newLang);
+            document.documentElement.setAttribute('dir', newDir);
+
+            langText.textContent = isArabic ? 'العربية' : 'English';
+
+            // التبديل بين النصوص المترجمة
+            document.querySelectorAll('[data-ar]').forEach(el => {
+                el.textContent = el.getAttribute(`data-${newLang}`);
+            });
+
+            // تحديث نص زر الوضع الداكن وفق اللغة الحالية
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            themeText.textContent = newLang === 'en' 
+                ? (isDark ? 'Light Mode' : 'Dark Mode') 
+                : (isDark ? 'الوضع الفاتح' : 'الوضع الداكن');
+        });
+
+        // 3. نسخ النصوص وإظهار إشعار Toast
+        function copyText(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                const toast = document.getElementById('toastNotification');
+                const isEng = document.documentElement.getAttribute('lang') === 'en';
+                toast.textContent = isEng ? 'Copied successfully! 📋' : 'تم النسخ بنجاح! 📋';
+                
+                toast.classList.add('show');
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 2500);
+            });
+        }
+
+        // 4. زر العودة للأعلى (Back to Top)
+        const backToTopBtn = document.getElementById('backToTopBtn');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
     </script>
 </body>
